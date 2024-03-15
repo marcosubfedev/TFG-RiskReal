@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TestP1</title>
+</head>
+<body>
+    <h1>Selecione una opcion entre las disponibles:</h1>
+    <form method="post">
+        <ul>  
+            {% for opcion in data['opciones'] %}
+                <button type="submit" name="option" value="{{ opcion['nombre'] }}">{{ opcion['nombre'] }}</button>
+            {% endfor %}      
+        </ul>
+    </form><!--
+    <ul>  
+        {% for opcion in data['opciones'] %}
+            <a href="http://127.0.0.1:5000/test/p2"><button>{{ opcion['nombre'] }}</button>
+        {% endfor %}      
+    </ul>-->
+</body>
+</html>

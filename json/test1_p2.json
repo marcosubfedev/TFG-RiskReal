@@ -1,0 +1,24 @@
+{
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "OpcionB 1",
+        "valor": 0.7
+      },
+      {
+        "id": 2,
+        "nombre": "OpcionB 2",
+        "valor": 0.5
+      },
+      {
+        "id": 3,
+        "nombre": "OpcionB 3",
+        "valor": 0.3
+      },
+      {
+        "id": 4,
+        "nombre": "OpcionB 4",
+        "valor": 1
+      }
+    ]
+  }
