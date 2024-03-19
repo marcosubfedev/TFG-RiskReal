@@ -17,7 +17,7 @@ def inicio():
     """
     return render_template('inicio.html')
 
-@app.route("/test/<page>", methods=['GET', 'POST'])
+@app.route("/test/p<path:page>", methods=['GET', 'POST'])
 def test_page(page):
     """
     Renderiza la página del test según el parámetro 'page'.
@@ -26,9 +26,13 @@ def test_page(page):
         session['page_counter'] = 1
         session['total_valor'] = 0
     
-    page_counter = session['page_counter']
-
-    if request.method == 'POST':
+    page_counter = session['page_counter']       
+         
+    if request.method == 'POST': 
+        if 'anterior' in request.form:
+            session['page_counter'] = max(1, session['page_counter'] - 1)
+            return redirect(url_for('test_page', page=session['page_counter']))  
+        
         file = f'test1_p{page_counter}.json'
         json_url = ruta_json(file)
 
@@ -45,11 +49,11 @@ def test_page(page):
             # Aumenta el contador de la página cuando se envía el formulario.
             session['page_counter'] += 1
 
-            if session['page_counter'] == 5:
+            if 'finish' in request.form or session['page_counter'] == 5:
                 # Si es la quinta página, redirige a la página de resultados.
                 return redirect(url_for('resultado_page'))
             else:
-                return redirect(url_for('test_page', page=page))
+                return redirect(url_for('test_page', page=page_counter+1))
 
     file = f'test1_p{page_counter}.json'
     json_url = ruta_json(file)
@@ -57,7 +61,8 @@ def test_page(page):
     with open(json_url, 'r') as json_file:
         data = json.load(json_file)
 
-    return render_template(f'test_{page}.html', data=data)
+    return render_template(f'test_p{page}.html', data=data, page_counter=page_counter)
+
 
 @app.route("/resultado")
 def resultado_page():

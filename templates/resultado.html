@@ -2,9 +2,27 @@
 <html>
 <head>
     <title>Resultado</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Estilo adicional para centrar el contenido verticalmente */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
-    <h1>Completaste el test</h1>
-    <p>El total de valor seleccionado es: {{ total_valor }}</p>
+    <div class="container text-center">
+        <h1>Completaste el test</h1>
+        <p class="lead">El total de valor seleccionado es: {{ total_valor }}</p>
+    </div>
+
+    <!-- Bootstrap JS (opcional si no lo necesitas) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
