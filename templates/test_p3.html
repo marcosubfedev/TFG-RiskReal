@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TestP{{ page }}</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Estilos adicionales */
+        .opcion-item {
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .opcion-imagen {
+            max-width: 100px;
+            max-height: 100px;
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Seleccione una opción entre las disponibles:</h1>
         <form method="post">
-            <ul class="list-group">
+            <div class="row">
                 {% for opcion in data['opciones'] %}
-                    <li class="list-group-item">
+                    <div class="col-md-6 opcion-item">
                         <input type="radio" id="{{ opcion['nombre'] }}" name="option" value="{{ opcion['nombre'] }}">
                         <label for="{{ opcion['nombre'] }}">{{ opcion['nombre'] }}</label>
-                    </li>
+                        <br>
+                        <img src="{{ opcion['imagen'] }}" alt="{{ opcion['nombre'] }}" class="opcion-imagen">
+                    </div>
                 {% endfor %}
-            </ul>
+            </div>
                 <button type="submit" class="btn btn-primary" name="anterior">Anterior</button>
                 <button type="submit" class="btn btn-primary">Siguiente</button>
         </form>

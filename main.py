@@ -4,7 +4,7 @@ import json, os, uuid
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
-users = {'admin': 'admin1234', 'prueba': 'usuario1234'}
+users = {'admin': 'adminsoy', 'prueba': 'usuario1234'}
 
 def ruta_json(file):
      ruta= 'json\\'+ file

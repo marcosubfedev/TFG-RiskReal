@@ -3,22 +3,26 @@
       {
         "id": 1,
         "nombre": "OpcionB 1",
-        "valor": 0.7
+        "valor": 0.7,
+        "imagen": "/static/img/imgt1p2_1.jpg"
       },
       {
         "id": 2,
         "nombre": "OpcionB 2",
-        "valor": 0.5
+        "valor": 0.5,
+        "imagen": "/static/img/imgt1p2_2.jpg"
       },
       {
         "id": 3,
         "nombre": "OpcionB 3",
-        "valor": 0.3
+        "valor": 0.3,
+        "imagen": "/static/img/imgt1p2_3.jpg"
       },
       {
         "id": 4,
         "nombre": "OpcionB 4",
-        "valor": 1
+        "valor": 1,
+        "imagen": "/static/img/imgt1p2_4.jpg"
       }
     ]
   }
