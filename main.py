@@ -1,10 +1,39 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, session
 import json, os, uuid
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+db = SQLAlchemy(app)
 
-users = {'admin': 'adminsoy', 'prueba': 'usuario1234'}
+migrate = Migrate(app, db)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    username = db.Column(db.String(50), unique=True)
+    password_hash = db.Column(db.String(128), nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+
+    def set_password(self, password):
+        """
+        Genera y almacena el hash de la contraseña.
+        """
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        """
+        Verifica si la contraseña coincide con el hash almacenado.
+        """
+        return check_password_hash(self.password_hash, password)
+    
+class Resultados(db.Model):
+    usuario = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
+    fecha = db.Column(db.DateTime, primary_key=True)
+    puntuacion = db.Column(db.Integer, nullable=False)
 
 def ruta_json(file):
      ruta= 'json\\'+ file
@@ -19,12 +48,38 @@ def inicio():
     """
     return render_template('inicio.html')
 
+@app.route('/registro', methods=['GET', 'POST'])
+def registro():
+    """
+    Gestiona el registro de nuevos usuarios.
+    """
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        email = request.form['email']
+
+        existing_user = User.query.filter_by(username=username).first()
+        if existing_user:
+            return render_template('registro.html', error='El usuario ya existe')
+
+        new_user = User(id=1,username=username, email=email)
+        new_user.set_password(password)
+        
+
+        db.session.add(new_user)
+        db.session.commit()
+
+        return redirect(url_for('login'))
+    
+    return render_template('registro.html')
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        if username in users and users[username] == password:
+        user = User.query.filter_by(username=username).first()
+        if user and user.check_password(password):
             user_id = str(uuid.uuid4())
             session['user_id'] = user_id
             session['username'] = username
@@ -47,7 +102,15 @@ def test_page(page):
 
     user_id = session.get('user_id')
     if not user_id:
-        return redirect(url_for('login')) 
+        count = User.query.filter_by(username='invitado').count()
+        if count == 0:
+            invitado = User(id=1,username='invitado',email='example@gamil.com')
+            invitado.set_password('soyelinvitado') 
+            db.session.add(invitado)
+            db.session.commit()
+    
+        session['user_id'] = str(uuid.uuid4())
+        session['username'] = 'invitado'        
     
     user_data = session.setdefault(user_id, {'page_counter': 1, 'total_valor': 0})
     if user_data['page_counter'] == 5:
@@ -99,5 +162,27 @@ def test_page(page):
 
 @app.route("/resultado")
 def resultado_page():
-    total_valor = session.get('total_valor', 0)  # Obtiene el total de valor seleccionado de la sesión.
+    total_valor = session.get('total_valor', 0)
+
+    resultado = Resultados(usuario=session.get('username'), fecha=datetime.now(), puntuacion=total_valor)
+    db.session.add(resultado)
+    db.session.commit()
     return render_template('resultado.html', total_valor=total_valor)
+
+@app.route("/usuarios")
+def mostrar_usuarios():
+    """
+    Consulta y muestra todos los usuarios en HTML.
+    """
+    usuarios = User.query.all()
+    return render_template("usuarios.html", usuarios=usuarios)
+
+@app.route("/resultados")
+def mostrar_resultados():
+    """
+    Consulta y muestra todos los resultados en HTML.
+    """
+    # Consulta para obtener todos los resultados
+    resultados = Resultados.query.all()
+    
+    return render_template("resultados.html", resultados=resultados)

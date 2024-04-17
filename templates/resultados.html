@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+</head>
+<body>
+    <h1>Resultados</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Fecha</th>
+                <th>Puntuación</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for resultado in resultados %}
+            <tr>
+                <td>{{ resultado.usuario.username if resultado.usuario else "" }}</td>
+                <td>{{ resultado.fecha }}</td>
+                <td>{{ resultado.puntuacion }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
