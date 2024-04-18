@@ -109,7 +109,8 @@ def test_page(page):
             db.session.add(invitado)
             db.session.commit()
     
-        session['user_id'] = str(uuid.uuid4())
+        user_id = str(uuid.uuid4())
+        session['user_id'] = user_id
         session['username'] = 'invitado'        
     
     user_data = session.setdefault(user_id, {'page_counter': 1, 'total_valor': 0})
