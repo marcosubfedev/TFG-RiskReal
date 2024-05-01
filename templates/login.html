@@ -19,8 +19,8 @@
         <div class="card-body">
           <form action="{{ url_for('login') }}" method="post"> <!-- Agregando el atributo action -->
             <div class="form-group">
-              <label for="username">Username</label>
-              <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username"> <!-- Agregando el atributo name -->
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email"> <!-- Agregando el atributo name -->
             </div>
             <div class="form-group">
               <label for="password">Password</label>
@@ -28,6 +28,9 @@
             </div>
             <button type="submit" class="btn btn-primary btn-block">Login</button>
           </form>
+        </div>
+        <div class="card-footer">
+          <a href="{{ url_for('cambiar_contraseña') }}" class="btn btn-link btn-block">¿Olvidaste tu contraseña?</a> <!-- Botón para redirigir a la página de cambio de contraseña -->
         </div>
       </div>
     </div>

@@ -18,7 +18,7 @@
         <tbody>
             {% for resultado in resultados %}
             <tr>
-                <td>{{ resultado.usuario.username if resultado.usuario else "" }}</td>
+                <td>{{ resultado.usuario }}</td>
                 <td>{{ resultado.fecha }}</td>
                 <td>{{ resultado.puntuacion }}</td>
             </tr>

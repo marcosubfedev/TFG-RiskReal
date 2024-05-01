@@ -6,6 +6,14 @@
     <title>RiskReal</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .welcome-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999; /* Asegura que el mensaje esté encima de otros elementos */
+        }
+    </style>
 </head>
 <body>
 
@@ -19,8 +27,8 @@
 
                 <!-- Botones de enlace a otras páginas -->
                 <div class="text-center">
-                    <a href="{{ url_for('test_page', page=1) }}" class="btn btn-primary btn-lg mr-2">Test</a>
-                    {% if 'username' not in session %}
+                    <a href="{{ url_for('esta_logeado') }}" class="btn btn-primary btn-lg mr-2">Test</a>
+                    {% if 'nombre' not in session %}
                         <a href="{{ url_for('login') }}" class="btn btn-success btn-lg mr-2">Iniciar sesión</a>
                         <a href="{{ url_for('registro') }}" class="btn btn-info btn-lg">Registro</a>
                     {% else %}
@@ -31,6 +39,11 @@
         </div>
     </div>
 
+    <div class="welcome-message">
+        {% if 'nombre' in session %}
+            <p>Bienvenido, {{ session['nombre'] }}</p>
+        {% endif %}
+    </div>
     <!-- Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

@@ -3,9 +3,25 @@
 \section{Introducción}
 
 \section{Estructura de directorios}
-
+Todo el código se encuentra en \textbf{mayn.py}, el resto de ficheros de la raíz son ficheros de las paginas y miscelania utilizada, se modificaran aquellos que sean necesario respecto a su uso en el codigo.
+\begin{enumerate}
+    \item \textbf{json/}: Contiene todos los ficheros json con los datos de los test.
+    \item \textbf{static/img/}: Contiene las imágenes utilizadas en los json.
+    \item \textbf{templayes/}: Contiene los archivos html de las diferentes páginas de la aplicación.
+\end{enumerate}
 \section{Manual del programador}
 
 \section{Compilación, instalación y ejecución del proyecto}
-
+a la hora de instalar el proyecto en \textbf{Visual Studio Code} una vez tengamos el repositorio clonado y dispongamos de \textbf{python} instalado, seguiremos las siguientes indicaciones para completar la instalazión y poder ejecutarlo.
+\begin{enumerate}
+    \item al ejecutar \textbf{Visual Studio Code} abrimos la carpeta del repositorio fuente como directorio principal y nos abrimos una terminal. 
+    \item py -3 -m venv proyecto: creamos un entorno virtual siendo \textbf{proyecto} el nombre que le queramos desear.
+    \item proyecto\textbackslash Scripts\textbackslash activate: una vez creado el entorno lo activamos, en caso de no nombrarlo \textbf{proyecto} cambiar el nombre por el introducido.
+    \item pip install -r requirements.txt: una vez activado el entorno instalaremos todos los elementos necesarios.
+    \item \$env:FLASK\_APP = "main": con este comando estableceremos como fichero fuente para la aplicación \textbf{FLASK} el fichero \textbf{main.py}. 
+    \item flask db init: una vez ya tenemos todo configurado creamos los ficheros principales para \textbf{flask\_migrate}.
+    \item flask db migrate: una vez creados se generan las instancias de las tablas.
+    \item flask db upgrade: introducion este comando generaremos las tablas y en caso de que hayan sido modificadas se ejecutara para aplicar los cambios de estas antes de ejecutar el proyecto
+    \item flask --app main run --debug: por último para ejecutar el propio proyecto se lanzara el comando con la opcion de \textbf{debug} para tener una traza de la ejecución del proyecto.
+\end{enumerate}
 \section{Pruebas del sistema}

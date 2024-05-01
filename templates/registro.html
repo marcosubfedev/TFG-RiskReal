@@ -13,8 +13,8 @@
     <h1 class="mt-4 mb-4">Registro de Usuario</h1>
     <form method="post" action="{{ url_for('registro') }}" class="col-md-6 mx-auto">
         <div class="form-group">
-            <label for="username">Nombre de Usuario:</label>
-            <input type="text" name="username" class="form-control" required>
+            <label for="cod_empresa">Codigo de empresa:</label>
+            <input type="text" name="cod_empresa" class="form-control" required>
         </div>
 
         <div class="form-group">
@@ -25,6 +25,31 @@
         <div class="form-group">
             <label for="password">Contraseña:</label>
             <input type="password" name="password" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="genero">Genero:</label>
+            <input type="text" name="genero" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="edad">Edad:</label>
+            <input type="number" name="edad" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="rol">Rol:</label>
+            <input type="text" name="rol" class="form-control" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Registrarse</button>

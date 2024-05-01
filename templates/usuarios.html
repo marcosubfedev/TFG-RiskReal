@@ -19,8 +19,13 @@
             {% for usuario in usuarios %}
             <tr>
                 <td>{{ usuario.id }}</td>
-                <td>{{ usuario.username }}</td>
+                <td>{{ usuario.cod_empresa }}</td>
                 <td>{{ usuario.email }}</td>
+                <td>{{ usuario.nombre }}</td>
+                <td>{{ usuario.apellido }}</td>
+                <td>{{ usuario.genero }}</td>
+                <td>{{ usuario.edad }}</td>
+                <td>{{ usuario.rol }}</td>      
             </tr>
             {% endfor %}
         </tbody>
