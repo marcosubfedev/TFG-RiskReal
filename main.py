@@ -9,12 +9,13 @@ app = Flask(__name__)
 app.secret_key = os.urandom(24)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 db = SQLAlchemy(app)
+con_admin='RiskReal'
 
 migrate = Migrate(app, db)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    cod_empresa = db.Column(db.Integer, unique=True)
+    cod_empresa = db.Column(db.Integer, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False) 
     password_hash = db.Column(db.String(128), nullable=False)
     nombre = db.Column(db.String(50), nullable=True)
@@ -23,6 +24,8 @@ class User(db.Model):
     edad = db.Column(db.Integer, nullable=True)
     rol = db.Column(db.String(50), nullable=True)
     CampoPr = db.Column(db.String(50), nullable=True)
+    admin = db.Column(db.Boolean, default=False)
+    camb_cont = db.Column(db.Boolean, default=False)
 
 
     def set_password(self, password):
@@ -70,12 +73,17 @@ def registro():
         edad = request.form['edad']
         rol = request.form['rol']
         CampoPr = None
+        admin = False
+        camb_cont = False
 
         existing_user = User.query.filter_by(email=email).first()
         if existing_user:
             return render_template('registro.html', error='El correo ya existe')
 
-        new_user = User( cod_empresa=cod_empresa, email=email, nombre=nombre, apellido=apellido, genero=genero, edad=edad, rol=rol, CampoPr= CampoPr)
+        if 'admin' in request.form and request.form['admin'] == con_admin:
+            admin=True
+        
+        new_user = User( cod_empresa=cod_empresa, email=email, nombre=nombre, apellido=apellido, genero=genero, edad=edad, rol=rol, CampoPr= CampoPr, admin=admin, camb_cont=camb_cont)
         new_user.set_password(password)
 
         db.session.add(new_user)
@@ -93,31 +101,61 @@ def login():
         user = User.query.filter_by(email=email).first()
         if user and user.check_password(password):
             nombre=user.nombre
+            admin=user.admin
+            email=user.email
+            camb_cont = user.camb_cont
             user_id = str(uuid.uuid4())
             session['user_id'] = user_id
             session['nombre'] = nombre
+            session['email'] = email
+            session['admin'] = admin
+            session['camb_cont'] = camb_cont
             return redirect(url_for('inicio'))
         else:
             return render_template('login.html', error='Credenciales incorrectas')
     return render_template('login.html')
 
+@app.route('/boolcontraseña', methods=['GET', 'POST'])
+def bool_contraseña():
+    if request.method == 'POST':
+        email = request.form['email']
+        # Busca el usuario por su correo electrónico
+        user = User.query.filter_by(email=email).first()
+        if user:
+            # Actualiza el valor de camb_cont a True
+            user.camb_cont = True
+            db.session.commit()
+            return redirect(url_for('inicio'))
+        else:
+            return render_template('boolContraseña.html', error='No se encontró ningún usuario con ese correo electrónico')
+
+    return render_template('boolContraseña.html')
+
 @app.route('/cambiarcontraseña', methods=['GET', 'POST'])
 def cambiar_contraseña():
     if request.method == 'POST':
-        email = request.form['email']
-        new_password = request.form['new_password']
-        confirm_password = request.form['confirm_password']
-
-        if new_password != confirm_password:
-            return render_template('cambiarContraseña.html', error='Las contraseñas no coinciden')
-
+        email = session.get('email')
         user = User.query.filter_by(email=email).first()
         if user:
+            new_password = request.form['new_password']
+            confirm_password = request.form['confirm_password']
+
+            if new_password != confirm_password:
+                return render_template('cambiarContraseña.html', error='Las contraseñas no coinciden')
+
+            camb_cont=False
+            user.camb_cont = camb_cont
             user.set_password(new_password)
             db.session.commit()
+
+            session.pop('user_id', None)
+            session.pop('nombre', None)
+            session.pop = ('email', None)
+            session.pop = ('admin', None)
+            session.pop = ('camb_cont', None)
             return redirect(url_for('login'))
         else:
-            return render_template('cambiarContraseña.html', error='No se encontró ningún usuario con ese correo electrónico')
+            return render_template('cambiarContraseña.html', error='Usuario no encontrado')
 
     return render_template('cambiarContraseña.html')
 
@@ -125,30 +163,46 @@ def cambiar_contraseña():
 def logout():
     session.pop('user_id', None)
     session.pop('nombre', None)
+    session.pop = ('email', None)
+    session.pop = ('admin', None)
+    session.pop = ('camb_cont', None)
     return redirect(url_for('inicio'))
 
 @app.route("/esta_logeado")
 def esta_logeado():
+    test = request.args.get('test')
+    if test == 'True':
+        test = True
+    elif test == 'False':
+        test = False
+    else:
+        test = False
     user_id = session.get('user_id')
     if not user_id:
         return redirect(url_for('datos_invitado'))
-    else:
+    elif test:
         return redirect(url_for('test_page', page=1))
+    else:
+        return redirect(url_for('cuestionario_page', page=1))
     
 @app.route("/invitado",  methods=['GET', 'POST'])
 def datos_invitado():
+    test = request.args.get('test', default=False, type=bool) 
+
     if request.method == 'POST':
-        cod_empresa = None
+        cod_empresa = 1234
         nombre='invitado'
         apellido = None
         edad = request.form['edad']
         rol = request.form['rol']
         genero = request.form['genero']
         CampoPr = request.form['CampoPr']
+        admin = False
+        camb_cont = False
 
         count = User.query.filter_by(nombre='invitado').count()
         if count == 0:
-            invitado = User(cod_empresa=cod_empresa, email='example@gmail.com', nombre=nombre, apellido=apellido, genero=genero, edad=edad, rol=rol, CampoPr= CampoPr)
+            invitado = User(cod_empresa=cod_empresa, email='example@gmail.com', nombre=nombre, apellido=apellido, genero=genero, edad=edad, rol=rol, CampoPr= CampoPr, admin=admin, camb_cont=camb_cont)
             invitado.set_password('soyelinvitado') 
             db.session.add(invitado)
         else:
@@ -162,7 +216,7 @@ def datos_invitado():
         user_id = str(uuid.uuid4())
         session['user_id'] = user_id
         session['nombre'] = 'invitado'  
-        return redirect(url_for('test_page', page=1))
+        return redirect(url_for('test_page' if test else 'cuestionario_page', page=1))
     
     return render_template('datosInvitado.html')
 
@@ -174,52 +228,81 @@ def test_page(page):
     
     user_id = session.get('user_id')        
     user_data = session.setdefault(user_id, {'page_counter': 1, 'total_valor': 0})
-    if user_data['page_counter'] == 5:
-        user_data['page_counter'] = 1
-        user_data['total_valor'] = 0
-    page_counter = user_data['page_counter']
     
+    file = 'test_1.json'
+    json_url = ruta_json(file)
+    with open(json_url, 'r') as json_file:
+        combined_data = json.load(json_file)
+        paginas = combined_data.get('paginas', 1)
+
     if request.method == 'POST': 
         if 'anterior' in request.form:
             user_data['page_counter'] = max(1, user_data['page_counter'] - 1)
             session['page_counter'] = user_data['page_counter']
             return redirect(url_for('test_page', page=user_data['page_counter']))
 
-        file = f'test1_p{user_data["page_counter"]}.json'
-        json_url = ruta_json(file)
+        selected_option = request.form.get('option')
+        for option in combined_data.get(page, {'opciones': []})['opciones']:
+            if option['nombre'] == selected_option:
+                user_data['total_valor'] += option['valor']
+                session['total_valor'] = user_data['total_valor']
+                break
 
-        with open(json_url, 'r') as json_file:
-            data = json.load(json_file)
+        user_data['page_counter'] += 1
+        session['page_counter'] = user_data['page_counter']
+        
+        if 'finish' in request.form or user_data['page_counter'] > paginas:
+            session.pop(user_id, None)
+            return redirect(url_for('resultado_page'))
+        else:
+            return redirect(url_for('test_page', page=user_data['page_counter']))
 
-        if 'option' in request.form:
-            selected_option = request.form['option']
-            for option in data['opciones']:
-                if option['nombre'] == selected_option:
-                    user_data['total_valor'] += option['valor']
-                    session['total_valor'] = user_data['total_valor']
-                    break
 
-            user_data['page_counter'] += 1
-            session['page_counter'] = user_data['page_counter']
-            
+    data = combined_data.get(page, {'opciones': []})
 
-            if 'finish' in request.form or user_data['page_counter'] == 5:
-                return redirect(url_for('resultado_page'))
-            else:
-                return redirect(url_for('test_page', page=user_data['page_counter']))
-
-    file = f'test1_p{user_data["page_counter"]}.json'
-    json_url = ruta_json(file)
-
-    with open(json_url, 'r') as json_file:
-        data = json.load(json_file)
-
-    # Actualizar los datos del usuario en la sesión
     session[user_id] = user_data
 
-    return render_template(f'test_p{page}.html', data=data, page_counter=page_counter)
+    return render_template(f'test_escenario.html', data=data, page_counter=user_data['page_counter'],paginas=paginas)
+
+@app.route("/cuestionario/p<path:page>", methods=['GET', 'POST'])
+def cuestionario_page(page):
+    """
+    Renderiza la página del cuestionario según el parámetro 'page'.
+    """
+    user_id = session.get('user_id')        
+    user_data = session.setdefault(user_id, {'page_counter': 1, 'total_valor': 0})
+    
+    file = 'cuestionario_1.json'  
+    json_url = ruta_json(file)
+    with open(json_url, 'r') as json_file:
+        combined_data = json.load(json_file)
+        paginas = len(combined_data)
+
+    if request.method == 'POST': 
+        if 'anterior' in request.form:
+            user_data['page_counter'] = max(1, user_data['page_counter'] - 1)
+            session['page_counter'] = user_data['page_counter']
+            return redirect(url_for('cuestionario_page', page=user_data['page_counter']))
+
+        selected_option = request.form.get('opcion')
+        if selected_option:
+            selected_option = float(selected_option)
+            user_data['total_valor'] += selected_option
+            session['total_valor'] = user_data['total_valor']
+        user_data['page_counter'] += 1
+        session['page_counter'] = user_data['page_counter']
+        
+        if 'finish' in request.form or user_data['page_counter'] > paginas:
+            session.pop(user_id, None)
+            return redirect(url_for('resultado_page'))
+        else:
+            return redirect(url_for('cuestionario_page', page=user_data['page_counter']))
 
 
+    data = combined_data.get(page, {})
+    session[user_id] = user_data
+
+    return render_template(f'cuestionario.html', data=data, page_counter=user_data['page_counter'],paginas=paginas)
 
 @app.route("/resultado")
 def resultado_page():

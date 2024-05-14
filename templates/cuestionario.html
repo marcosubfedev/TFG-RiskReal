@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario P{{ page_counter }}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Estilos adicionales */
+        .opcion-item {
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>{{ data['nombre'] }}</h4>
+                </div>
+            </div>
+            {% if not data['si/no'] %}
+                <div class="row">
+                    <div class="col-md-12 opcion-item">
+                        <input type="radio" id="TDes" name="opcion" value=0.2>
+                        <label for="TDes">Totalmente en desacuerdo</label>
+                    </div>
+                    <div class="col-md-12 opcion-item">
+                        <input type="radio" id="Des" name="opcion" value=0.4>
+                        <label for="Des">En desacuerdo</label>
+                    </div>
+                    <div class="col-md-12 opcion-item">
+                        <input type="radio" id="NN" name="opcion" value=0.6>
+                        <label for="NN">Ni de acuerdo ni en desacuerdo</label>
+                    </div>
+                    <div class="col-md-12 opcion-item">
+                        <input type="radio" id="Ac" name="opcion" value=0.8>
+                        <label for="Ac">De acuerdo</label>
+                    </div>
+                    <div class="col-md-12 opcion-item">
+                        <input type="radio" id="Tac" name="opcion" value=1>
+                        <label for="Tac">Totalmente de acuerdo</label>
+                    </div>
+                </div>
+            {% else %}
+                <div class="row">
+                    <div class="col-md-12 opcion-item">
+                        <input type="radio" id="Si" name="opcion" value=0.6>
+                        <label for="Si">Si</label>
+                    </div>
+                    <div class="col-md-12 opcion-item">
+                        <input type="radio" id="No" name="opcion" value=0.4>
+                        <label for="No">No</label>
+                    </div>
+                </div>
+            {% endif %}
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary mt-3" name="anterior">Anterior</button>
+                    {% if page_counter < paginas %}
+                        <button type="submit" class="btn btn-primary mt-3" name="submit_button">Siguiente</button>
+                    {% else %}
+                        <button type="submit" class="btn btn-danger mt-3" name="finish">Finalizar</button>
+                    {% endif %}
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

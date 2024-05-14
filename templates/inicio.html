@@ -27,12 +27,20 @@
 
                 <!-- Botones de enlace a otras páginas -->
                 <div class="text-center">
-                    <a href="{{ url_for('esta_logeado') }}" class="btn btn-primary btn-lg mr-2">Test</a>
-                    {% if 'nombre' not in session %}
+                    <a href="{{ url_for('esta_logeado', test='True') }}" class="btn btn-primary btn-lg mr-2">Test</a>
+                    <a href="{{ url_for('esta_logeado', test='False') }}" class="btn btn-primary btn-lg mr-2">Cuestionario</a>
+                    {% if 'nombre' in session %}
+                        {% if session['admin'] == True %}
+                            <a href="{{ url_for('mostrar_usuarios') }}" class="btn btn-success btn-lg mr-2">Usuarios</a>
+                            <a href="{{ url_for('mostrar_resultados') }}" class="btn btn-info btn-lg">Resultados</a>
+                        {% endif %}
+                        {% if session['camb_cont'] == True %}
+                            <a href="{{ url_for('cambiar_contraseña') }}" class="btn btn-info btn-lg">Cambiar Contraseña</a>
+                        {% endif %}
+                        <a href="{{ url_for('logout') }}" class="btn btn-danger btn-lg">Cerrar sesión</a>
+                    {% else %}
                         <a href="{{ url_for('login') }}" class="btn btn-success btn-lg mr-2">Iniciar sesión</a>
                         <a href="{{ url_for('registro') }}" class="btn btn-info btn-lg">Registro</a>
-                    {% else %}
-                        <a href="{{ url_for('logout') }}" class="btn btn-danger btn-lg">Cerrar sesión</a>
                     {% endif %}
                 </div>
             </div>

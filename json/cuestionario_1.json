@@ -1,0 +1,122 @@
+{
+    "1":{ 
+        "nombre":"Pido directamente lo que necesito de los demás",
+        "si/no": false 
+    },
+    "2":{
+        "nombre":"¿Tu trabajo tiene objetivos claramente marcados?",
+        "si/no": true 
+    },
+    "3":{
+        "nombre":"Me gusta leer cosas que estimulan mi capacidad de pensamiento.",
+        "si/no": false 
+    },
+    "4":{
+        "nombre":"Me resulta relativamente fácil expresar mis ideas, incluso cuando difieren de las que sostienen quienes me rodean.",
+        "si/no": false 
+    },
+    "5":{
+        "nombre":"Puedo identificar fácilmente rutas alternativas a una solución.",
+        "si/no": false 
+    },
+    "6":{
+        "nombre":"Normalmente busco, múltiples formas de hacer las mismaas cosas en mi rutina diaria.",
+        "si/no": false 
+    },
+    "7":{
+        "nombre":"Dondequiera que he estado, he sido una fuerza poderosa para el cambio constructivo.",
+        "si/no": false 
+    },
+    "8":{
+        "nombre":"Otros casi nunca comentan que creo tener la razón todo el tiempo.",
+        "si/no": false 
+    },
+    "9":{
+        "nombre":"Me gusta entrar en los detalles de un tema en particular.",
+        "si/no": false 
+    },
+    "10":{
+        "nombre":"¿Recibe ayuda y apoyo de sus compañeros para ejecutar sus tareas?",
+        "si/no": true 
+    },
+    "11":{ 
+        "nombre":"Tengo curiosidad por encontrar la solución a un problema.",
+        "si/no": false 
+    },
+    "12":{
+        "nombre":"Para hacer bien mi trabajo, debe ser \"un poco psicólogo\" con los clientes, a fin de entender mejor su estado de ánimo.",
+        "si/no": false 
+    },
+    "13":{
+        "nombre":"Mi conjunto de habilidades creativas me ayuda a resolver problemas.",
+        "si/no": false 
+    },
+    "14":{
+        "nombre":"Estoy dispuesto a probar cualquier cosa, al menos una vez.",
+        "si/no": false 
+    },
+    "15":{
+        "nombre":"Puedo realizar las tareas asignadas, incluso cuando los resultados iniciales difieren de los planeados.",
+        "si/no": false 
+    },
+    "16":{
+        "nombre":"En caso de conflicto con otra persona, puedo discutir el tema de una manera racional y sin emociones.",
+        "si/no": false 
+    },
+    "17":{
+        "nombre":"Es fácil para mí comprender las emociones de mis compañer@s en el lugar de trabajo.",
+        "si/no": false 
+    },
+    "18":{
+        "nombre":"Nada es más emocionante que ver materializarse mis ideas.",
+        "si/no": false 
+    },
+    "19":{
+        "nombre":"Estoy constantemente buscando formas alternativas de mejorar mi vida.",
+        "si/no": false 
+    },
+    "20":{
+        "nombre":"¿Existe un ambiente saludable entre usted y sus compañer@s?",
+        "si/no": true 
+    },
+    "21":{ 
+        "nombre":"Cuando estoy en compañía de quienes me rodean, prefiero hablar de emociones, en lugar de cosas cotidianas.",
+        "si/no": false 
+    },
+    "22":{
+        "nombre":"Prefiero no limitarme a cosas que ya sé",
+        "si/no": false 
+    },
+    "23":{
+        "nombre":"¿Usted y sus compañeros se apoyan mutuamente en el trabajo?",
+        "si/no": true 
+    },
+    "24":{
+        "nombre":"Me motivo cuando las tareas que se me asignan están orientadas a objetivos.",
+        "si/no": false 
+    },
+    "25":{
+        "nombre":"Siempre tiendo a avanzar hacia una discusión directa del problema en cuestión.",
+        "si/no": false 
+    },
+    "26":{
+        "nombre":"Me gusta ser innovador en mis métodos o procedimientos.",
+        "si/no": false 
+    },
+    "27":{
+        "nombre":"Cuando me comparo con los demás, se me da mejor ofrontar el cambio.",
+        "si/no": false 
+    },
+    "28":{
+        "nombre":"Creo que un problema se puede resolver de varias formas.",
+        "si/no": false 
+    },
+    "29":{
+        "nombre":"Me familiarizo fácilmente con gente nueva.",
+        "si/no": false 
+    },
+    "30":{
+        "nombre":"Me gusta la idea del cambio.",
+        "si/no": false 
+    }
+}
