@@ -1,536 +1,554 @@
 {
-    "paginas":19,
-    "1":{
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_1/P1_1.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_1/P1_2.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_1/P1_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_1/P1_4.png"
-          }
-        ]
+  "paginas": 19,
+  "1": {
+    "pregunta": "#1 - El/la trabajador/a está yendo a trabajar, pero llega tarde porque se ha uedado dormido. En consecuencia, no llegará a tiempo al trabajo.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_1/P1_1.png"
       },
-    "2":{
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_2/P2_1.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_2/P2_2.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_2/P2_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_2/P2_4.png"
-          }
-        ]
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_1/P1_2.png"
       },
-    "3": {
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_3/P3_1.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_3/P3_2.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_3/P3_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_3/P3_4.png"
-          }
-        ]
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_1/P1_3.png"
       },
-      "4": {
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_4/P4_1.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_4/P4_2.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_4/P4_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_4/P4_4.png"
-          }
-        ]
-      },
-      "5": {
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_5/P5_1.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_5/P5_2.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_5/P5_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_5/P5_4.png"
-          }
-        ]
-      },
-      "6": {
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_6/P6_1.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_6/P6_2.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_6/P6_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_6/P6_4.png"
-          }
-        ]
-      },
-      "7": {
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_7/P7_1.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_7/P7_2.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_7/P7_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_7/P7_4.png"
-          }
-        ]
-      },
-      "8": {
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_8/P8_1.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_8/P8_2.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_8/P8_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_8/P8_4.png"
-          }
-        ]
-      },
-      "9": {
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_9/P9_1.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_9/P9_2.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_9/P9_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_9/P9_4.png"
-          }
-        ]
-      },
-      "10": {
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_10/P10_1.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_10/P10_1.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_10/P10_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_10/P10_4.png"
-          }
-        ]
-      },
-      "11": {
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_11/P11_1.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_11/P11_2.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_11/P11_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_11/P11_4.png"
-          }
-        ]
-      },
-      "12": {
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_12/P12_2.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_12/P12_1.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_12/P12_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_12/P12_4.png"
-          }
-        ]
-      },
-      "13": {
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_13/P13_1.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_13/P13_2.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_13/P13_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_13/P13_4.png"
-          }
-        ]
-      },
-      "14": {
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_14/P14_1.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_14/P14_2.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_14/P14_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_14/P14_4.png"
-          }
-        ]
-      },
-      "15": {
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_15/P15_1.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_15/P15_2.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_15/P15_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_15/P15_4.png"
-          }
-        ]
-      },
-      "16": {
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_16/P16_1.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_16/P16_2.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_16/P16_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_16/P16_4.png"
-          }
-        ]
-      },
-      "17": {
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_17/P17_1.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_17/P17_2.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_17/P17_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_17/P17_4.png"
-          }
-        ]
-      },
-      "18": {
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_18/P18_1.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_18/P18_2.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_18/P18_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_18/P18_4.png"
-          }
-        ]
-      },
-      "19": {
-        "opciones": [
-          {
-            "id": 1,
-            "nombre": "1",
-            "valor": 0.7,
-            "imagen": "/static/img/Test1/P_19/P19_1.png"
-          },
-          {
-            "id": 2,
-            "nombre": "2",
-            "valor": 0.5,
-            "imagen": "/static/img/Test1/P_19/P19_2.png"
-          },
-          {
-            "id": 3,
-            "nombre": "3",
-            "valor": 0.3,
-            "imagen": "/static/img/Test1/P_19/P19_3.png"
-          },
-          {
-            "id": 4,
-            "nombre": "4",
-            "valor": 1,
-            "imagen": "/static/img/Test1/P_19/P19_4.png"
-          }
-        ]
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_1/P1_4.png"
       }
+    ]
+  },
+  "2": {
+    "pregunta": "#2 - El/la trabajador/a se encuentra con un atasco en la carretera.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_2/P2_1.png"
+      },
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_2/P2_2.png"
+      },
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_2/P2_3.png"
+      },
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_2/P2_4.png"
+      }
+    ]
+  },
+  "3": {
+    "pregunta": "#3 - En su camino a la primera fábrica (punto A), su responsable le llama y le pide que vaya a otra fábrica (punto B) que se encuentra más lejos que el punto A.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_3/P3_1.png"
+      },
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_3/P3_2.png"
+      },
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_3/P3_3.png"
+      },
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_3/P3_4.png"
+      }
+    ]
+  },
+  "4": {
+    "pregunta": "#4 - El/la trabajador/a llega al trabajo más tarde de lo previsto. Para compensarlo, realiza los trabajos de mantenimiento más rápido de lo planeado, aunque eso suponga no terminar las tareas correctamente.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_4/P4_1.png"
+      },
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_4/P4_2.png"
+      },
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_4/P4_3.png"
+      },
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_4/P4_4.png"
+      }
+    ]
+  },
+  "5": {
+    "pregunta": "#5 - El/la trabajador/a ha olvidado su Equipo de Protección Individual (EPI) en el coche y procede a comenzar su trabajo programado para evitar más retraso.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_5/P5_1.png"
+      },
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_5/P5_2.png"
+      },
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_5/P5_3.png"
+      },
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_5/P5_4.png"
+      }
+    ]
+  },
+  "6": {
+    "pregunta": "#6 - Cuando El/la trabajador/a está listo para comenzar con la primera tarea, el superior de producción le informa de una tarea urgenre que deba completarse. El/la trabajador/a considera que esa tarea no es tan urgente. Además, atender esa tarea le supondría tener que permanecer dentro de esa fábrica más tiempo del programado.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_6/P6_1.png"
+      },
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_6/P6_2.png"
+      },
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_6/P6_3.png"
+      },
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_6/P6_4.png"
+      }
+    ]
+  },
+  "7": {
+    "pregunta": "#7 - Debe terminatr a tiempo porque se le asignó una tarea urgente en otro lugar de trabajo.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_7/P7_1.png"
+      },
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_7/P7_2.png"
+      },
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_7/P7_3.png"
+      },
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_7/P7_4.png"
+      }
+    ]
+  },
+  "8": {
+    "pregunta": "#8 - El/la trabajador/a necesita un descanso para almonzar antes de continuar con su viaje, pero no puede perder tiempo porque ya está muy atrasado con sus tareas.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_8/P8_1.png"
+      },
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_8/P8_2.png"
+      },
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_8/P8_3.png"
+      },
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_8/P8_4.png"
+      }
+    ]
+  },
+  "9": {
+    "pregunta": "#9 - Empieza a sentirse cansada y débil en el viaje, pero quiere terminar el trabajo a tiempo.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_9/P9_1.png"
+      },
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_9/P9_2.png"
+      },
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_9/P9_3.png"
+      },
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_9/P9_4.png"
+      }
+    ]
+  },
+  "10": {
+    "pregunta": "#10 - No hay tráfico en la carretera y va retrasada a su próxima tarea.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_10/P10_1.png"
+      },
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_10/P10_1.png"
+      },
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_10/P10_3.png"
+      },
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_10/P10_4.png"
+      }
+    ]
+  },
+  "11": {
+    "pregunta": "#11 - Cuando está a punto de emprender un trabajo de mantenimiento, no tiene las herramientas adecuadas para la tarea.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_11/P11_1.png"
+      },
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_11/P11_2.png"
+      },
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_11/P11_3.png"
+      },
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_11/P11_4.png"
+      }
+    ]
+  },
+  "12": {
+    "pregunta": "#12 - Durante el trabajo de mantenimiento que está realizado, comienza a sentor dolor de cabeza y no puede concentrarse adecuadamente en la tarea asignada.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_12/P12_2.png"
+      },
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_12/P12_1.png"
+      },
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_12/P12_3.png"
+      },
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_12/P12_4.png"
+      }
+    ]
+  },
+  "13": {
+    "pregunta": "#13 - Para realizar una de las tareas asignadas, se da cuenta de que necesita utilizar una pieza de repuesto que también necesitará al día siguiente para otro trabajo de mantenimiento.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_13/P13_1.png"
+      },
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_13/P13_2.png"
+      },
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_13/P13_3.png"
+      },
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_13/P13_4.png"
+      }
+    ]
+  },
+  "14": {
+    "pregunta": "#14 - En su tránsito entre fábricas, y debido a una combinación de cansancio acumulado y de camino resbaladizo por el mal tiempo, el/la trabajador/a tiene un accidente. Afortunadamente, no hay daños graves.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_14/P14_1.png"
+      },
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_14/P14_2.png"
+      },
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_14/P14_3.png"
+      },
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_14/P14_4.png"
+      }
+    ]
+  },
+  "15": {
+    "pregunta": "#15 - Como llega tarde, de camino a la última fábrica que debe visitar comienza a conducir por encima del límite de velocidad. de repente, golpea un animal grande.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_15/P15_1.png"
+      },
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_15/P15_2.png"
+      },
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_15/P15_3.png"
+      },
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_15/P15_4.png"
+      }
+    ]
+  },
+  "16": {
+    "pregunta": "#16 - Al llegar a su lugar de trabajo para resolver un asunto urgente.El/la trabajador/a se da cuenta de que las reparaciones requerirán más tiempo del previsto. Lo más probable es que tenga que quedarse más tiempo para completar las reparaciones.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_16/P16_1.png"
+      },
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_16/P16_2.png"
+      },
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_16/P16_3.png"
+      },
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_16/P16_4.png"
+      }
+    ]
+  },
+  "17": {
+    "pregunta": "#17 - Uno de sus compañeros de trabajo no ha ido a trabajar. Tenían previsto realizar los trabajos de mantenimiento juntos ya que la tarea en cuestión requiere de dos personas experimentadas trabajando juntas para que se complete correctamente.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_17/P17_1.png"
+      },
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_17/P17_2.png"
+      },
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_17/P17_3.png"
+      },
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_17/P17_4.png"
+      }
+    ]
+  },
+  "18": {
+    "pregunta": "#18 - Una de las tareas asignadas resulta ser mucho más compleja de lo que se esperaba y comienza a requerir del tiempo asignado a las tareas restantes. Persistir en terminar esa tarea podría incluso afectar al tiempo asignado al siguiente lugar de trabajo.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_18/P18_1.png"
+      },
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_18/P18_2.png"
+      },
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_18/P18_3.png"
+      },
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_18/P18_4.png"
+      }
+    ]
+  },
+  "19": {
+    "pregunta": "#19 - Después de reemplazar un motor pesado, el/la trabajador7a comienza a moverlo sin cumplir la normativa existente sobre manejo de cargas.",
+    "opciones": [
+      {
+        "id": 1,
+        "nombre": "1",
+        "valor": 0.7,
+        "imagen": "/static/img/Test1/P_19/P19_1.png"
+      },
+      {
+        "id": 2,
+        "nombre": "2",
+        "valor": 0.5,
+        "imagen": "/static/img/Test1/P_19/P19_2.png"
+      },
+      {
+        "id": 3,
+        "nombre": "3",
+        "valor": 0.3,
+        "imagen": "/static/img/Test1/P_19/P19_3.png"
+      },
+      {
+        "id": 4,
+        "nombre": "4",
+        "valor": 1,
+        "imagen": "/static/img/Test1/P_19/P19_4.png"
+      }
+    ]
   }
-  
+}

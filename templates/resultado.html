@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Resultado</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
@@ -14,7 +16,18 @@
         }
     </style>
 </head>
+
 <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container px-4">
+            <a class="navbar-brand" href="#page-top">RiskReal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
+        </div>
+    </nav>
+
     <div class="container text-center">
         <h1>Completaste el test</h1>
         <p class="lead">El total de valor seleccionado es: {{ total_valor }}</p>
@@ -28,4 +41,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

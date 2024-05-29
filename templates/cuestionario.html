@@ -1,23 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cuestionario P{{ page_counter }}</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
     <style>
         /* Estilos adicionales */
         .opcion-item {
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            padding: 0;
+            /* Ajustar padding para incluir el label */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .opcion-item input[type="radio"] {
+            display: none;
+        }
+
+        .opcion-item label {
+            display: block;
+            cursor: pointer;
             padding: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: #fff;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+            margin: 0;
+            /* Asegurar que no haya márgenes en el label */
+        }
+
+        .opcion-item:hover label {
+            background-color: #d5d542;
+            /* Color cuando se pasa el ratón por encima */
+        }
+
+        .opcion-item input[type="radio"]:checked+label {
+            background-color: #53c93e;
+            /* Color cuando se selecciona */
+        }
+
+        /* Ajuste para el contenido debajo de la barra de navegación */
+        body {
+            padding-top: 56px;
+            /* Establece el espacio para la barra de navegación */
         }
     </style>
 </head>
+
 <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container px-4">
+            <a class="navbar-brand" href="#page-top">RiskReal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
+        </div>
+    </nav>
+
     <div class="container">
         <form method="post">
             <div class="row">
@@ -25,50 +73,47 @@
                     <h4>{{ data['nombre'] }}</h4>
                 </div>
             </div>
-            {% if not data['si/no'] %}
-                <div class="row">
-                    <div class="col-md-12 opcion-item">
-                        <input type="radio" id="TDes" name="opcion" value=0.2>
-                        <label for="TDes">Totalmente en desacuerdo</label>
-                    </div>
-                    <div class="col-md-12 opcion-item">
-                        <input type="radio" id="Des" name="opcion" value=0.4>
-                        <label for="Des">En desacuerdo</label>
-                    </div>
-                    <div class="col-md-12 opcion-item">
-                        <input type="radio" id="NN" name="opcion" value=0.6>
-                        <label for="NN">Ni de acuerdo ni en desacuerdo</label>
-                    </div>
-                    <div class="col-md-12 opcion-item">
-                        <input type="radio" id="Ac" name="opcion" value=0.8>
-                        <label for="Ac">De acuerdo</label>
-                    </div>
-                    <div class="col-md-12 opcion-item">
-                        <input type="radio" id="Tac" name="opcion" value=1>
-                        <label for="Tac">Totalmente de acuerdo</label>
-                    </div>
+            <div class="row">
+                {% if not data['si/no'] %}
+                <div class="col-md-12 opcion-item">
+                    <input type="radio" id="TDes" name="opcion" value="0.2">
+                    <label for="TDes">Totalmente en desacuerdo</label>
                 </div>
-            {% else %}
-                <div class="row">
-                    <div class="col-md-12 opcion-item">
-                        <input type="radio" id="Si" name="opcion" value=0.6>
-                        <label for="Si">Si</label>
-                    </div>
-                    <div class="col-md-12 opcion-item">
-                        <input type="radio" id="No" name="opcion" value=0.4>
-                        <label for="No">No</label>
-                    </div>
+                <div class="col-md-12 opcion-item">
+                    <input type="radio" id="Des" name="opcion" value="0.4">
+                    <label for="Des">En desacuerdo</label>
                 </div>
-            {% endif %}
-            
+                <div class="col-md-12 opcion-item">
+                    <input type="radio" id="NN" name="opcion" value="0.6">
+                    <label for="NN">Ni de acuerdo ni en desacuerdo</label>
+                </div>
+                <div class="col-md-12 opcion-item">
+                    <input type="radio" id="Ac" name="opcion" value="0.8">
+                    <label for="Ac">De acuerdo</label>
+                </div>
+                <div class="col-md-12 opcion-item">
+                    <input type="radio" id="Tac" name="opcion" value="1">
+                    <label for="Tac">Totalmente de acuerdo</label>
+                </div>
+                {% else %}
+                <div class="col-md-12 opcion-item">
+                    <input type="radio" id="Si" name="opcion" value="0.6">
+                    <label for="Si">Sí</label>
+                </div>
+                <div class="col-md-12 opcion-item">
+                    <input type="radio" id="No" name="opcion" value="0.4">
+                    <label for="No">No</label>
+                </div>
+                {% endif %}
+            </div>
             <div class="row">
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-primary mt-3" name="anterior">Anterior</button>
-                    {% if page_counter < paginas %}
-                        <button type="submit" class="btn btn-primary mt-3" name="submit_button">Siguiente</button>
-                    {% else %}
-                        <button type="submit" class="btn btn-danger mt-3" name="finish">Finalizar</button>
-                    {% endif %}
+                    {% if page_counter < paginas %} <button type="submit" class="btn btn-primary mt-3"
+                        name="submit_button" disabled>Siguiente</button>
+                        {% else %}
+                        <button type="submit" class="btn btn-danger mt-3" name="finish" disabled>Finalizar</button>
+                        {% endif %}
                 </div>
             </div>
         </form>
@@ -78,5 +123,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const radioButtons = document.querySelectorAll('input[name="opcion"]');
+            const submitButton = document.querySelector('button[name="submit_button"]');
+            const finishButton = document.querySelector('button[name="finish"]');
+
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', function () {
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                    }
+                    if (finishButton) {
+                        finishButton.disabled = false;
+                    }
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>

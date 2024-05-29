@@ -1,48 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cambiar Contraseña</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Contraseña</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <style>
+        .header-spacing {
+            margin-bottom: 3rem;
+            /* Use the value from mt-xxl-5 */
+        }
+
+        .btn-spacing {
+            margin-bottom: 1rem;
+            /* Use the value from mt-xxl-3 */
+            margin-right: 1rem;
+            /* Add some space to the right */
+        }
+    </style>
 </head>
-<body>
 
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="text-center">Cambiar Contraseña</h3>
+<body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container px-4">
+            <a class="navbar-brand" href="#page-top">RiskReal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
         </div>
-        <div class="card-body">
-          {% if error %}
-          <div class="alert alert-danger" role="alert">
-            {{ error }}
-          </div>
-          {% endif %}
-          <form action="{{ url_for('cambiar_contraseña') }}" method="post">
-            <div class="form-group">
-              <label for="new_password">Nueva Contraseña</label>
-              <input type="password" id="new_password" name="new_password" class="form-control" placeholder="Introduce tu nueva contraseña" required>
+    </nav>
+
+    <!-- Cambiar Contraseña Section -->
+    <section id="cambiar-contraseña" class="section-padding bg-light">
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="text-center">Cambiar Contraseña</h3>
+                        </div>
+                        <div class="card-body">
+                            {% if error %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ error }}
+                            </div>
+                            {% endif %}
+                            <form action="{{ url_for('cambiar_contraseña') }}" method="post">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" class="form-control"
+                                        placeholder="Introduce tu correo electrónico" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="res_sec">Respuesta secreta:</label>
+                                    <input type="text" id="res_sec" name="res_sec" class="form-control"
+                                        placeholder="Introduce tu respuesta a la pregunta secreta" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="new_password">Nueva Contraseña</label>
+                                    <input type="password" id="new_password" name="new_password" class="form-control"
+                                        placeholder="Introduce tu nueva contraseña" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm_password">Confirmar Contraseña</label>
+                                    <input type="password" id="confirm_password" name="confirm_password"
+                                        class="form-control" placeholder="Confirma tu nueva contraseña" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Cambiar Contraseña</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-              <label for="confirm_password">Confirmar Contraseña</label>
-              <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Confirma tu nueva contraseña" required>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Cambiar Contraseña</button>
-          </form>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+    </section>
 
-<!-- Bootstrap JS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

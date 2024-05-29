@@ -1,70 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
     <!-- Agregamos los enlaces a Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
+
 <body>
 
-<div class="container">
-    <h1 class="mt-4 mb-4">Registro de Usuario</h1>
-    <form method="post" action="{{ url_for('registro') }}" class="col-md-6 mx-auto">
-        <div class="form-group">
-            <label for="cod_empresa">Codigo de empresa:</label>
-            <input type="text" name="cod_empresa" class="form-control" required>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container px-4">
+            <a class="navbar-brand" href="#page-top">RiskReal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
         </div>
+    </nav>
 
-        <div class="form-group">
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" name="email" class="form-control" required>
-        </div>
+    <div class="container mt-5">
+        <h1 class="mt-4 mb-4">Registro de Usuario</h1>
+        <form method="post" action="{{ url_for('registro') }}" class="col-md-6 mx-auto">
+            <div class="form-group">
+                <label for="cod_empresa">Codigo de empresa:</label>
+                <input type="text" name="cod_empresa" class="form-control" required>
+            </div>
 
-        <div class="form-group">
-            <label for="password">Contraseña:</label>
-            <input type="password" name="password" class="form-control" required>
-        </div>
+            <div class="form-group">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
 
-        <div class="form-group">
-            <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" class="form-control" required>
-        </div>
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" name="password" class="form-control" required>
+            </div>
 
-        <div class="form-group">
-            <label for="apellido">Apellido:</label>
-            <input type="text" name="apellido" class="form-control" required>
-        </div>
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" class="form-control" required>
+            </div>
 
-        <div class="form-group">
-            <label for="genero">Genero:</label>
-            <input type="text" name="genero" class="form-control" required>
-        </div>
+            <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" name="apellido" class="form-control" required>
+            </div>
 
-        <div class="form-group">
-            <label for="edad">Edad:</label>
-            <input type="number" name="edad" class="form-control" required>
-        </div>
+            <div class="form-group">
+                <label for="genero">Genero:</label>
+                <input type="text" name="genero" class="form-control" required>
+            </div>
 
-        <div class="form-group">
-            <label for="rol">Rol:</label>
-            <input type="text" name="rol" class="form-control" required>
-        </div>
+            <div class="form-group">
+                <label for="edad">Edad:</label>
+                <input type="number" name="edad" class="form-control" required>
+            </div>
 
-        <div class="form-group">
-            <label for="admin">Clave admin:</label>
-            <input type="password" name="admin" class="form-control">
-        </div>
+            <div class="form-group">
+                <label for="rol">Rol:</label>
+                <input type="text" name="rol" class="form-control" required>
+            </div>
 
-        <button type="submit" class="btn btn-primary">Registrarse</button>
-    </form>
-</div>
+            <div class="form-group">
+                <label for="admin">Clave admin:</label>
+                <input type="password" name="admin" class="form-control">
+            </div>
 
-<!-- Agregamos el script de Bootstrap -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            <div class="form-group">
+                <label for="preg_sec">{{pregunta}}</label>
+                <input type="text" name="preg_sec" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+        </form>
+    </div>
+
+    <!-- Agregamos el script de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>

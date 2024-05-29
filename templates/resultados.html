@@ -1,29 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 70px;
+            /* Ajusta el padding superior para dejar espacio para la barra de navegación */
+            padding-bottom: 70px;
+            /* Añade espacio al final para el footer */
+            position: relative;
+            /* Necesario para que el z-index funcione correctamente */
+        }
+
+        .button-custom {
+            background-color: #000;
+            color: #ffffff;
+            border: 2px solid #000;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Resultados</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Usuario</th>
-                <th>Fecha</th>
-                <th>Puntuación</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for resultado in resultados %}
-            <tr>
-                <td>{{ resultado.usuario }}</td>
-                <td>{{ resultado.fecha }}</td>
-                <td>{{ resultado.puntuacion }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container px-4">
+            <a class="navbar-brand" href="#page-top">RiskReal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
+        </div>
+    </nav>
+
+    <div class="container mt-5"> <!-- Añadido margen superior para el contenido -->
+        <h1 class="mt-4">Resultados</h1> <!-- Movido el encabezado al contenedor principal -->
+        <div class="table-responsive">
+            <table class="table table-striped mt-4">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Fecha</th>
+                        <th>Puntuación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for resultado in resultados %}
+                    <tr>
+                        <td>{{ resultado.usuario }}</td>
+                        <td>{{ resultado.fecha }}</td>
+                        <td>{{ resultado.puntuacion }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <a href="{{ url_for('inicio') }}" class="btn btn-primary button-custom text-center">Inicio</a>
+
+    <footer class="py-5 bg-dark">
+        <div class="container px-4">
+            <p class="m-0 text-center text-white">Copyright &copy; RiskReal 2024</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (opcional si no lo necesitas) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
