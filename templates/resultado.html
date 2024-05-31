@@ -7,12 +7,47 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* Estilo adicional para centrar el contenido verticalmente */
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            flex: 1;
+        }
+
+        .header-spacing {
+            margin-bottom: 3rem;
+        }
+
+        .btn-spacing {
+            margin-bottom: 1rem;
+            margin-right: 1rem;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .gif-img {
+            max-width: 100%;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -28,13 +63,33 @@
         </div>
     </nav>
 
-    <div class="container text-center">
-        <h1>Completaste el test</h1>
-        <p class="lead">El total de valor seleccionado es: {{ total_valor }}</p>
-
-        <!-- Botón para ir a inicio.html -->
-        <a href="{{ url_for('inicio') }}" class="btn btn-primary">Ir a Inicio</a>
+    <div class="container text-center" style="margin-bottom: 70px;">
+        <h1 class="header-spacing">Completaste el test</h1>
+        {% if total_valor < 5 %} <p class="lead">Resultado: <span style="color: red;">Bajo</span> respecto al máximo. No
+            superas con creces el tema abordado,
+            deberías dar un repaso para la próxima vez.</p>
+            <img src="{{ url_for('static', filename='gifs/bajo.gif') }}" class="gif-img" alt="GIF">
+            {% elif total_valor >= 5 and total_valor < 8 %} <p class="lead">Resultado: <span
+                    style="color: orange;">Medio</span> respecto al máximo. No está mal, te sabes defender,
+                con el tiempo mejorarás tu punto de vista.</p>
+                <img src="{{ url_for('static', filename='gifs/medio.gif') }}" class="gif-img" alt="GIF">
+                {% else %}
+                <p class="lead">Resultado: <span style="color: green;">Alto</span> respecto al máximo. Eres todo un
+                    experto en la materia,
+                    deberías ser tú el que examina.</p>
+                <img src="{{ url_for('static', filename='gifs/alto.gif') }}" class="gif-img" alt="GIF">
+                {% endif %}
     </div>
+    <div class="container text-center" style="margin-bottom: 70px;">
+        <a href="{{ url_for('inicio') }}" class="btn btn-primary btn-spacing">Ir a Inicio</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container px-4">
+            <p class="m-0">Copyright &copy; RiskReal</p>
+        </div>
+    </footer>
 
     <!-- Bootstrap JS (opcional si no lo necesitas) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

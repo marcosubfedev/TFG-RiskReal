@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>RiskReal</title>
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
 
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
         .welcome-message {
             position: fixed;
             top: 20px;
@@ -22,6 +27,19 @@
 
         .section-padding {
             padding: 60px 0;
+        }
+
+        .content {
+            flex: 1 0 auto;
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
         }
     </style>
 </head>
@@ -51,60 +69,84 @@
         </div>
     </nav>
 
-    <!-- Header -->
-    <header class="bg-primary bg-gradient text-white">
-        <div class="container px-4 text-center">
-            <h1 class="fw-bolder">Bienvenido a Risk Real</h1>
-            <p class="lead">La mejor plataforma para gestionar tus riesgos</p>
-        </div>
-    </header>
+    <!-- Content -->
+    <div class="content">
+        <!-- Header -->
+        <header class="bg-primary bg-gradient text-white">
+            <div class="container px-4 text-center">
+                <h1 class="fw-bolder">Bienvenido a Risk Real</h1>
+                <p class="lead">Comprueba tus conocimientos respecto a la seguridad</p>
+            </div>
+        </header>
 
-    <!-- Inscribirse Section -->
-    <section id="inscribirse" class="section-padding bg-light">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6 text-center">
-                    <h2 class="mt-xxl-5">Inscribirse</h2>
-                    {% if 'nombre' in session %}
-                    <a href="{{ url_for('logout') }}" class="btn btn-danger btn-lg mt-xxl-3">Cerrar sesión</a>
-                    {% else %}
-                    <a href="{{ url_for('login') }}" class="btn btn-success btn-lg mr-2 mt-xxl-3">Iniciar sesión</a>
-                    <a href="{{ url_for('registro') }}" class="btn btn-info btn-lg mt-xxl-3">Registro</a>
-                    {% endif %}
+        <!-- Inscribirse Section -->
+        <section id="inscribirse" class="section-padding bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center">
+                        <h2 class="mt-xxl-5">Inscribirse</h2>
+                        {% if 'nombre' in session %}
+                        <a href="{{ url_for('logout') }}" class="btn btn-danger btn-lg mt-xxl-3">Cerrar sesión</a>
+                        {% else %}
+                        <a href="{{ url_for('login') }}" class="btn btn-success btn-lg mr-2 mt-xxl-3">Iniciar sesión</a>
+                        <a href="{{ url_for('registro') }}" class="btn btn-info btn-lg mt-xxl-3">Registro</a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Examinarse Section -->
-    <section id="examinarse" class="section-padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6 text-center">
-                    <h2>Examinarse</h2>
-                    <a href="{{ url_for('esta_logeado', test='True') }}"
-                        class="btn btn-primary btn-lg mt-xxl-3">Test</a>
-                    <a href="{{ url_for('esta_logeado', test='False') }}"
-                        class="btn btn-primary btn-lg mt-xxl-3">Cuestionario</a>
+        <!-- Examinarse Section -->
+        <section id="examinarse" class="section-padding">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center">
+                        <h2>Examinarse</h2>
+                        <div class="btn-group mt-xxl-3">
+                            <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Test
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item"
+                                    href="{{ url_for('esta_logeado', test='True', file='test_1.json') }}">Test 1</a>
+                            </div>
+                        </div>
+                        <div class="btn-group mt-xxl-3">
+                            <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Cuestionario
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item"
+                                    href="{{ url_for('esta_logeado', test='False', file='cuestionario_1.json') }}">Cuestionario
+                                    1</a>
+                                <a class="dropdown-item"
+                                    href="{{ url_for('esta_logeado', test='False', file='cuestionario_2.json') }}">Cuestionario
+                                    2</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Administración Section -->
-    {% if 'nombre' in session and session['admin'] == True %}
-    <section id="administracion" class="section-padding bg-light">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6 text-center">
-                    <h2>Administración</h2>
-                    <a href="{{ url_for('mostrar_usuarios') }}" class="btn btn-success btn-lg mt-xxl-3">Usuarios</a>
-                    <a href="{{ url_for('mostrar_resultados') }}" class="btn btn-info btn-lg mt-xxl-3">Resultados</a>
+        <!-- Administración Section -->
+        {% if 'nombre' in session and session['admin'] == True %}
+        <section id="administracion" class="section-padding bg-light" style="margin-bottom: 70px;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center">
+                        <h2>Administración</h2>
+                        <a href="{{ url_for('mostrar_usuarios') }}" class="btn btn-success btn-lg mt-xxl-3">Usuarios</a>
+                        <a href="{{ url_for('mostrar_resultados') }}"
+                            class="btn btn-info btn-lg mt-xxl-3">Resultados</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    {% endif %}
+        </section>
+        {% endif %}
+    </div>
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">

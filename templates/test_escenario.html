@@ -9,7 +9,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* Estilos adicionales */
         .opcion-item {
             margin-bottom: 10px;
             border: 1px solid #ccc;
@@ -46,10 +45,21 @@
             background-color: #53c93e;
         }
 
-        .opcion-imagen {
-            max-width: 450px;
-            max-height: 450px;
-            margin-right: 10px;
+        .opcion-item label img {
+            display: block;
+            margin: 0 auto 10px auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
         }
     </style>
 </head>
@@ -65,16 +75,15 @@
         </div>
     </nav>
 
-    <div class="container mt-5">
-        <h1>{{ pregunta }}</h1>
+    <div class="container mt-5" style="margin-bottom: 70px;">
+        <h2>{{ pregunta }}</h2>
         <form id="test-form" method="post">
             <div class="row">
                 {% for opcion in data['opciones'] %}
-                <div class="col-md-6 opcion-item">
+                <div class="col-md-5 opcion-item">
                     <input type="radio" id="{{ opcion['nombre'] }}" name="option" value="{{ opcion['nombre'] }}">
                     <label for="{{ opcion['nombre'] }}" class="d-block">
                         <img src="{{ opcion['imagen'] }}" alt="{{ opcion['nombre'] }}" class="opcion-imagen">
-                        {{ opcion['nombre'] }}
                     </label>
                 </div>
                 {% endfor %}
@@ -92,6 +101,13 @@
                 {% endif %}
         </form>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container px-4">
+            <p class="m-0">Copyright &copy; RiskReal</p>
+        </div>
+    </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -11,11 +11,8 @@
     <style>
         body {
             padding-top: 70px;
-            /* Ajusta el padding superior para dejar espacio para la barra de navegación */
             padding-bottom: 70px;
-            /* Añade espacio al final para el footer */
             position: relative;
-            /* Necesario para que el z-index funcione correctamente */
         }
 
         .button-custom {
@@ -26,10 +23,31 @@
             font-size: 16px;
             text-decoration: none;
             border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .button-left {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+
+        .button-right {
             position: absolute;
             bottom: 20px;
             right: 20px;
             z-index: 100;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
         }
     </style>
 </head>
@@ -45,14 +63,15 @@
         </div>
     </nav>
 
-    <div class="container mt-5"> <!-- Añadido margen superior para el contenido -->
-        <h1 class="mt-4">Resultados</h1> <!-- Movido el encabezado al contenedor principal -->
+    <div class="container mt-5" style="margin-bottom: 70px;">
+        <h1 class="mt-4">Resultados</h1>
         <div class="table-responsive">
             <table class="table table-striped mt-4">
                 <thead class="thead-dark">
                     <tr>
                         <th>Usuario</th>
                         <th>Fecha</th>
+                        <th>Id_Test</th>
                         <th>Puntuación</th>
                     </tr>
                 </thead>
@@ -61,19 +80,22 @@
                     <tr>
                         <td>{{ resultado.usuario }}</td>
                         <td>{{ resultado.fecha }}</td>
+                        <td>{{ resultado.id_test }}</td>
                         <td>{{ resultado.puntuacion }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
+        <a href="{{ url_for('descargar_resultados') }}"
+            class="btn btn-success button-custom button-left text-center">Descargar CSV</a>
+        <a href="{{ url_for('inicio') }}" class="btn btn-primary button-custom button-right text-center">Inicio</a>
     </div>
 
-    <a href="{{ url_for('inicio') }}" class="btn btn-primary button-custom text-center">Inicio</a>
-
-    <footer class="py-5 bg-dark">
+    <!-- Footer -->
+    <footer>
         <div class="container px-4">
-            <p class="m-0 text-center text-white">Copyright &copy; RiskReal 2024</p>
+            <p class="m-0">Copyright &copy; RiskReal</p>
         </div>
     </footer>
 

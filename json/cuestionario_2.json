@@ -1,0 +1,24 @@
+{
+    "id": "Cuestionario_2",
+    "1": {
+        "nombre": "¿Te consideras una persona que comprende bien diagramas?",
+        "si/no": true
+    },
+    "2": {
+        "nombre": "Sueles utilizar recursividad para resolver tus problemas",
+        "si/no": false
+    },
+    "3": {
+        "nombre": "Sueles declarar funciones auxiliares",
+        "si/no": false
+    },
+    "4": {
+        "nombre": "¿Sueles trabajar en equipo?",
+        "si/no": true
+    },
+    "5": {
+        "nombre": "¿Buscas un rendimiento ante funcionalidad?",
+        "si/no": true
+    }
+    
+}

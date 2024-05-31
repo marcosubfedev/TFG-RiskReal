@@ -10,13 +10,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
     <style>
-        /* Estilos adicionales */
         .opcion-item {
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             padding: 0;
-            /* Ajustar padding para incluir el label */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             position: relative;
@@ -34,23 +32,31 @@
             transition: background-color 0.3s;
             border-radius: 5px;
             margin: 0;
-            /* Asegurar que no haya márgenes en el label */
+            font-size: 1rem;
+            word-wrap: break-word;
         }
 
         .opcion-item:hover label {
             background-color: #d5d542;
-            /* Color cuando se pasa el ratón por encima */
         }
 
         .opcion-item input[type="radio"]:checked+label {
             background-color: #53c93e;
-            /* Color cuando se selecciona */
         }
 
-        /* Ajuste para el contenido debajo de la barra de navegación */
         body {
             padding-top: 56px;
-            /* Establece el espacio para la barra de navegación */
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
         }
     </style>
 </head>
@@ -66,7 +72,7 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container" style="margin-bottom: 70px;">
         <form method="post">
             <div class="row">
                 <div class="col-md-12">
@@ -97,18 +103,21 @@
                 </div>
                 {% else %}
                 <div class="col-md-12 opcion-item">
-                    <input type="radio" id="Si" name="opcion" value="0.6">
+                    <input type="radio" id="Si" name="opcion" value="1">
                     <label for="Si">Sí</label>
                 </div>
                 <div class="col-md-12 opcion-item">
-                    <input type="radio" id="No" name="opcion" value="0.4">
+                    <input type="radio" id="No" name="opcion" value="0.5">
                     <label for="No">No</label>
                 </div>
                 {% endif %}
             </div>
             <div class="row">
                 <div class="col-md-12">
+                    {% if page_counter > 1 %}
                     <button type="submit" class="btn btn-primary mt-3" name="anterior">Anterior</button>
+                    {% endif %}
+
                     {% if page_counter < paginas %} <button type="submit" class="btn btn-primary mt-3"
                         name="submit_button" disabled>Siguiente</button>
                         {% else %}
@@ -118,6 +127,13 @@
             </div>
         </form>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container px-4">
+            <p class="m-0">Copyright &copy; RiskReal</p>
+        </div>
+    </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

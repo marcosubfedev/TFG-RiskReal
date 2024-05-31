@@ -11,11 +11,8 @@
     <style>
         body {
             padding-top: 70px;
-            /* Ajusta el padding superior para dejar espacio para la barra de navegación */
             padding-bottom: 70px;
-            /* Añade espacio al final para el footer */
             position: relative;
-            /* Necesario para que el z-index funcione correctamente */
         }
 
         .button-custom {
@@ -31,6 +28,16 @@
             right: 20px;
             z-index: 1000;
         }
+
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
     </style>
 </head>
 
@@ -45,14 +52,14 @@
         </div>
     </nav>
 
-    <div class="container mt-5"> <!-- Añadido margen superior para el contenido -->
-        <h1 class="mt-4">Lista de Usuarios</h1> <!-- Movido el encabezado al contenedor principal -->
+    <div class="container mt-5" style="margin-bottom: 70px;">
+        <h1 class="mt-4">Lista de Usuarios</h1>
         <div class="table-responsive">
             <table class="table table-striped mt-4">
                 <thead class="thead-dark">
                     <tr>
                         <th>ID</th>
-                        <th>Nombre de Usuario</th>
+                        <th>Codigo Empresa</th>
                         <th>Correo Electrónico</th>
                         <th>Nombre</th>
                         <th>Apellido</th>
@@ -81,13 +88,13 @@
                 </tbody>
             </table>
         </div>
+        <a href="{{ url_for('inicio') }}" class="btn btn-primary button-custom">Inicio</a>
     </div>
 
-    <a href="{{ url_for('inicio') }}" class="btn btn-primary button-custom">Inicio</a>
-
-    <footer class="py-5 bg-dark">
+    <!-- Footer -->
+    <footer>
         <div class="container px-4">
-            <p class="m-0 text-center text-white">Copyright &copy; RiskReal 2024</p>
+            <p class="m-0">Copyright &copy; RiskReal</p>
         </div>
     </footer>
 

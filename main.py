@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, session, jsonify
-import json, os, uuid, random
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify, send_file
+import json, os, uuid, random, csv
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -57,6 +57,7 @@ class User(db.Model):
 class Resultados(db.Model):
     usuario = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
     fecha = db.Column(db.DateTime, primary_key=True)
+    id_test = db.Column(db.String(50), nullable=False)
     puntuacion = db.Column(db.Integer, nullable=False)
 
 def ruta_json(file):
@@ -170,6 +171,8 @@ def logout():
 @app.route("/esta_logeado")
 def esta_logeado():
     test = request.args.get('test')
+    file = request.args.get('file')
+    session['file'] = file
     if test == 'True':
         test = True
     elif test == 'False':
@@ -186,7 +189,7 @@ def esta_logeado():
     
 @app.route("/invitado",  methods=['GET', 'POST'])
 def datos_invitado():
-    test = request.args.get('test', default=False, type=bool) 
+    test = request.args.get('test', default=False, type=bool)
 
     if request.method == 'POST':
         cod_empresa = 1234
@@ -214,7 +217,7 @@ def datos_invitado():
         db.session.commit()
         user_id = str(uuid.uuid4())
         session['user_id'] = user_id
-        session['nombre'] = 'invitado'  
+        session['nombre'] = 'invitado'
         return redirect(url_for('test_page' if test else 'cuestionario_page', page=1))
     
     return render_template('datosInvitado.html')
@@ -228,10 +231,12 @@ def test_page(page):
     user_id = session.get('user_id')        
     user_data = session.setdefault(user_id, {'page_counter': 1, 'total_valor': 0})
     
-    file = 'test_1.json'
+    file = session.get('file')
     json_url = ruta_json(file)
     with open(json_url, 'r', encoding='utf-8') as json_file:
         combined_data = json.load(json_file)
+        id_test = combined_data.get('id','Not Found')
+        session['id_test'] = id_test
         paginas = combined_data.get('paginas', 1)
 
     if request.method == 'POST': 
@@ -243,7 +248,7 @@ def test_page(page):
         selected_option = request.form.get('option')
         for option in combined_data.get(page, {'opciones': []})['opciones']:
             if option['nombre'] == selected_option:
-                user_data['total_valor'] += option['valor']
+                user_data['total_valor'] += option['valor']/paginas
                 session['total_valor'] = user_data['total_valor']
                 break
 
@@ -272,10 +277,12 @@ def cuestionario_page(page):
     user_id = session.get('user_id')        
     user_data = session.setdefault(user_id, {'page_counter': 1, 'total_valor': 0})
     
-    file = 'cuestionario_1.json'  
+    file = session.get('file')
     json_url = ruta_json(file)
     with open(json_url, 'r', encoding='utf-8') as json_file:
         combined_data = json.load(json_file)
+        id_cuestionario = combined_data.pop("id")
+        session['id_test'] = id_cuestionario        
         paginas = len(combined_data)
 
     if request.method == 'POST': 
@@ -288,7 +295,7 @@ def cuestionario_page(page):
         if selected_option:
             selected_option = float(selected_option)
             user_data['total_valor'] += selected_option
-            session['total_valor'] = user_data['total_valor']
+            session['total_valor'] = user_data['total_valor']/paginas
         user_data['page_counter'] += 1
         session['page_counter'] = user_data['page_counter']
         
@@ -306,9 +313,10 @@ def cuestionario_page(page):
 
 @app.route("/resultado")
 def resultado_page():
-    total_valor = session.get('total_valor', 0)
-
-    resultado = Resultados(usuario=session.get('nombre'), fecha=datetime.now(), puntuacion=total_valor)
+    total_valor = session.get('total_valor', 0)*10
+    total_valor = round(total_valor,2)
+    id_test = session.get('id_test','Not Found')
+    resultado = Resultados(usuario=session.get('nombre'), fecha=datetime.now(), id_test=id_test, puntuacion=total_valor)
     db.session.add(resultado)
     db.session.commit()
     return render_template('resultado.html', total_valor=total_valor)
@@ -329,3 +337,27 @@ def mostrar_resultados():
     resultados = Resultados.query.all()
     
     return render_template("resultados.html", resultados=resultados)
+
+@app.route("/descargar_resultados")
+def descargar_resultados():
+    """
+    Genera un archivo CSV con los resultados y lo envía como una descarga.
+    """
+    resultados = Resultados.query.all()
+    os.makedirs('csv', exist_ok=True)
+    ruta_archivo = os.path.join('csv', 'resultados.csv')
+    with open(ruta_archivo, mode='w', newline='') as file:
+        writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+
+        cabezera = ['Usuario', 'Fecha', 'Id_Test', 'Puntuacion']
+        writer.writerow(cabezera)
+        
+        for resultado in resultados:
+            writer.writerow([
+                resultado.usuario,
+                resultado.fecha,
+                resultado.id_test,
+                resultado.puntuacion
+            ])
+    
+    return send_file(ruta_archivo, mimetype='text/csv', as_attachment=True, download_name='resultados.csv')

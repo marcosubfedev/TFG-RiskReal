@@ -10,16 +10,29 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
         .header-spacing {
             margin-bottom: 3rem;
-            /* Use the value from mt-xxl-5 */
         }
 
         .btn-spacing {
             margin-bottom: 1rem;
-            /* Use the value from mt-xxl-3 */
             margin-right: 1rem;
-            /* Add some space to the right */
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
         }
     </style>
 </head>
@@ -35,8 +48,7 @@
         </div>
     </nav>
 
-    <!-- Cambiar Contraseña Section -->
-    <section id="cambiar-contraseña" class="section-padding bg-light">
+    <section id="cambiar-contraseña" class="section-padding bg-light" style="margin-bottom: 70px;">
         <div class="container mt-5">
             <div class="row justify-content-center">
                 <div class="col-md-6">
@@ -79,6 +91,13 @@
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container px-4">
+            <p class="m-0">Copyright &copy; RiskReal</p>
+        </div>
+    </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

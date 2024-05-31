@@ -9,6 +9,32 @@
     <!-- Agregamos los enlaces a Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .header-spacing {
+            margin-bottom: 3rem;
+        }
+
+        .btn-spacing {
+            margin-bottom: 1rem;
+            margin-right: 1rem;
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,8 +48,8 @@
         </div>
     </nav>
 
-    <section id="login" class="section-padding bg-light">
-        <div class="container mt-5"> <!-- Agregamos margen superior -->
+    <section id="login" class="section-padding bg-light" style="margin-bottom: 70px;">
+        <div class="container mt-5">
             <h1 class="mt-4 mb-4">Datos de Invitado</h1>
             <form method="post" action="{{ url_for('datos_invitado') }}" class="col-md-6 mx-auto">
                 <div class="form-group">
@@ -56,6 +82,17 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container px-4">
+            <p class="m-0">Copyright &copy; RiskReal</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
