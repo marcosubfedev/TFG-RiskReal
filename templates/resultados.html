@@ -12,7 +12,6 @@
         body {
             padding-top: 70px;
             padding-bottom: 70px;
-            position: relative;
         }
 
         .button-custom {
@@ -26,18 +25,8 @@
             margin-bottom: 10px;
         }
 
-        .button-left {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            z-index: 100;
-        }
-
-        .button-right {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            z-index: 100;
+        .container-main {
+            margin-bottom: 70px;
         }
 
         footer {
@@ -63,7 +52,7 @@
         </div>
     </nav>
 
-    <div class="container mt-5" style="margin-bottom: 70px;">
+    <div class="container container-main mt-5">
         <h1 class="mt-4">Resultados</h1>
         <div class="table-responsive">
             <table class="table table-striped mt-4">
@@ -87,9 +76,9 @@
                 </tbody>
             </table>
         </div>
-        <a href="{{ url_for('descargar_resultados') }}"
-            class="btn btn-success button-custom button-left text-center">Descargar CSV</a>
-        <a href="{{ url_for('inicio') }}" class="btn btn-primary button-custom button-right text-center">Inicio</a>
+        <a href="{{ url_for('descargar_resultados') }}" class="btn btn-success button-custom text-center">Descargar
+            CSV</a>
+        <a href="{{ url_for('inicio') }}" class="btn btn-primary button-custom text-center">Inicio</a>
     </div>
 
     <!-- Footer -->

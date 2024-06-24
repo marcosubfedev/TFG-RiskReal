@@ -65,16 +65,16 @@
 
     <div class="container text-center" style="margin-bottom: 70px;">
         <h1 class="header-spacing">Completaste el test</h1>
-        {% if total_valor < 5 %} <p class="lead">Resultado: <span style="color: red;">Bajo</span> respecto al máximo. No
+        {% if total_valor < 5 %} <p class="lead">Resultado: <span style="color: red;">{{ total_valor }} Bajo</span> respecto al máximo. No
             superas con creces el tema abordado,
             deberías dar un repaso para la próxima vez.</p>
             <img src="{{ url_for('static', filename='gifs/bajo.gif') }}" class="gif-img" alt="GIF">
             {% elif total_valor >= 5 and total_valor < 8 %} <p class="lead">Resultado: <span
-                    style="color: orange;">Medio</span> respecto al máximo. No está mal, te sabes defender,
+                    style="color: orange;">{{ total_valor }} Medio</span> respecto al máximo. No está mal, te sabes defender,
                 con el tiempo mejorarás tu punto de vista.</p>
                 <img src="{{ url_for('static', filename='gifs/medio.gif') }}" class="gif-img" alt="GIF">
                 {% else %}
-                <p class="lead">Resultado: <span style="color: green;">Alto</span> respecto al máximo. Eres todo un
+                <p class="lead">Resultado: <span style="color: green;">{{ total_valor }} Alto</span> respecto al máximo. Eres todo un
                     experto en la materia,
                     deberías ser tú el que examina.</p>
                 <img src="{{ url_for('static', filename='gifs/alto.gif') }}" class="gif-img" alt="GIF">

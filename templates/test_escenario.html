@@ -76,7 +76,7 @@
     </nav>
 
     <div class="container mt-5" style="margin-bottom: 70px;">
-        <h2>{{ pregunta }}</h2>
+        <h2>{{ page_counter }}/{{ paginas }}&emsp;{{ pregunta }}</h2>
         <form id="test-form" method="post">
             <div class="row">
                 {% for opcion in data['opciones'] %}

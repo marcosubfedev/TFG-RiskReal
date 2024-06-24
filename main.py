@@ -74,7 +74,12 @@ def inicio():
     user_id = session.get('user_id')
     if user_id:
         session[user_id] = {'page_counter': 1, 'total_valor': 0}
-    return render_template('inicio.html')
+
+    jsons = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'json')
+    tests = [f for f in os.listdir(jsons) if f.startswith('test_') and f.endswith('.json')]
+    cuestionarios = [f for f in os.listdir(jsons) if f.startswith('cuestionario_') and f.endswith('.json')]
+
+    return render_template('inicio.html', tests=tests, cuestionarios=cuestionarios)
 
 @app.route('/registro', methods=['GET', 'POST'])
 def registro():
@@ -361,3 +366,6 @@ def descargar_resultados():
             ])
     
     return send_file(ruta_archivo, mimetype='text/csv', as_attachment=True, download_name='resultados.csv')
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)

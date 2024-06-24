@@ -2,7 +2,7 @@
   "paginas": 19,
   "id": "Test_1",
   "1": {
-    "pregunta": "#1 - El/la trabajador/a está yendo a trabajar, pero llega tarde porque se ha uedado dormido. En consecuencia, no llegará a tiempo al trabajo.",
+    "pregunta": "#1 - El/la trabajador/a está yendo a trabajar, pero llega tarde porque se ha quedado dormido. En consecuencia, no llegará a tiempo al trabajo.",
     "opciones": [
       {
         "id": 1,
@@ -147,7 +147,7 @@
     ]
   },
   "6": {
-    "pregunta": "#6 - Cuando El/la trabajador/a está listo para comenzar con la primera tarea, el superior de producción le informa de una tarea urgenre que deba completarse. El/la trabajador/a considera que esa tarea no es tan urgente. Además, atender esa tarea le supondría tener que permanecer dentro de esa fábrica más tiempo del programado.",
+    "pregunta": "#6 - Cuando El/la trabajador/a está listo para comenzar con la primera tarea, el superior de producción le informa de una tarea urgente que deba completarse. El/la trabajador/a considera que esa tarea no es tan urgente. Además, atender esa tarea le supondría tener que permanecer dentro de esa fábrica más tiempo del programado.",
     "opciones": [
       {
         "id": 1,
@@ -176,7 +176,7 @@
     ]
   },
   "7": {
-    "pregunta": "#7 - Debe terminatr a tiempo porque se le asignó una tarea urgente en otro lugar de trabajo.",
+    "pregunta": "#7 - Debe terminar a tiempo porque se le asignó una tarea urgente en otro lugar de trabajo.",
     "opciones": [
       {
         "id": 1,
@@ -205,7 +205,7 @@
     ]
   },
   "8": {
-    "pregunta": "#8 - El/la trabajador/a necesita un descanso para almonzar antes de continuar con su viaje, pero no puede perder tiempo porque ya está muy atrasado con sus tareas.",
+    "pregunta": "#8 - El/la trabajador/a necesita un descanso para almorzar antes de continuar con su viaje, pero no puede perder tiempo porque ya está muy atrasado con sus tareas.",
     "opciones": [
       {
         "id": 1,
@@ -321,7 +321,7 @@
     ]
   },
   "12": {
-    "pregunta": "#12 - Durante el trabajo de mantenimiento que está realizado, comienza a sentor dolor de cabeza y no puede concentrarse adecuadamente en la tarea asignada.",
+    "pregunta": "#12 - Durante el trabajo de mantenimiento que está realizado, comienza a sentir dolor de cabeza y no puede concentrarse adecuadamente en la tarea asignada.",
     "opciones": [
       {
         "id": 1,
@@ -408,7 +408,7 @@
     ]
   },
   "15": {
-    "pregunta": "#15 - Como llega tarde, de camino a la última fábrica que debe visitar comienza a conducir por encima del límite de velocidad. de repente, golpea un animal grande.",
+    "pregunta": "#15 - Como llega tarde, de camino a la última fábrica que debe visitar comienza a conducir por encima del límite de velocidad. De repente, golpea un animal grande.",
     "opciones": [
       {
         "id": 1,
@@ -437,7 +437,7 @@
     ]
   },
   "16": {
-    "pregunta": "#16 - Al llegar a su lugar de trabajo para resolver un asunto urgente.El/la trabajador/a se da cuenta de que las reparaciones requerirán más tiempo del previsto. Lo más probable es que tenga que quedarse más tiempo para completar las reparaciones.",
+    "pregunta": "#16 - Al llegar a su lugar de trabajo para resolver un asunto urgente. El/la trabajador/a se da cuenta de que las reparaciones requerirán más tiempo del previsto. Lo más probable es que tenga que quedarse más tiempo para completar las reparaciones.",
     "opciones": [
       {
         "id": 1,
@@ -524,7 +524,7 @@
     ]
   },
   "19": {
-    "pregunta": "#19 - Después de reemplazar un motor pesado, el/la trabajador7a comienza a moverlo sin cumplir la normativa existente sobre manejo de cargas.",
+    "pregunta": "#19 - Después de reemplazar un motor pesado, el/la trabajador/a comienza a moverlo sin cumplir la normativa existente sobre manejo de cargas.",
     "opciones": [
       {
         "id": 1,
