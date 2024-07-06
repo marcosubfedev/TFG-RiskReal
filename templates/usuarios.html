@@ -29,7 +29,7 @@
         footer {
             background-color: #343a40;
             color: #ffffff;
-            padding: 20px 0; 
+            padding: 20px 0;
             text-align: center;
             width: 100%;
             position: fixed;
@@ -85,7 +85,15 @@
                 </tbody>
             </table>
         </div>
-        <a href="{{ url_for('inicio') }}" class="btn btn-primary button-custom">Inicio</a>
+        <div class="d-flex justify-content-between mt-3">
+            {% if prev_url %}
+            <a href="{{ prev_url }}" class="btn button-custom btn-secondary">Anterior</a>
+            {% endif %}
+            <a href="{{ url_for('inicio') }}" class="btn btn-primary button-custom">Inicio</a>
+            {% if next_url %}
+            <a href="{{ next_url }}" class="btn button-custom btn-secondary">Siguiente</a>
+            {% endif %}
+        </div>
     </div>
 
     <!-- Footer -->

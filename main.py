@@ -1,3 +1,10 @@
+"""
+Aplicación Flask con la que se pueden realizar diferentes tests y cuestionarios.
+Utiliza Flask-session para el tratamiento de los usuarios y SQLAlchemy 
+para la gestión de la base de datos con ayuda de Flask-migrate.
+
+Autor:Marcos Ubierna Fernández
+"""
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, send_file
 import json, os, uuid, random, csv
 from flask_sqlalchemy import SQLAlchemy
@@ -6,15 +13,19 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 from dotenv import load_dotenv
 
-app = Flask(__name__)
+# Configuración de la aplicación Flask
+app = Flask(__name__, static_folder='static', static_url_path='/static')
 app.secret_key = os.urandom(24)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 db = SQLAlchemy(app)
 
+# Carga la variable de entorno para clave_admin
 con_admin=os.getenv('CLAVE_ADMIN', default='default_value')
 
+# Inicialización de migraciones de la base de datos
 migrate = Migrate(app, db)
 
+# tabla user
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     cod_empresa = db.Column(db.Integer, nullable=False)
@@ -53,7 +64,8 @@ class User(db.Model):
         Verifica si la pregunta secreta coincide con el hash almacenado.
         """
         return check_password_hash(self.preg_sec_has, preg_sec)
-    
+
+# Tabla resultados    
 class Resultados(db.Model):
     usuario = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
     fecha = db.Column(db.DateTime, primary_key=True)
@@ -61,7 +73,7 @@ class Resultados(db.Model):
     puntuacion = db.Column(db.Integer, nullable=False)
 
 def ruta_json(file):
-     ruta= 'json\\'+ file
+     ruta = os.path.join('json', file)
      SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
      json_url = os.path.join(SITE_ROOT, ruta) 
      return json_url
@@ -92,6 +104,7 @@ def registro():
         combined_data = json.load(json_file)
         preguntas = len(combined_data)
     
+    # Selecciona una pregunta secreta aleatoria
     num = random.randint(1, preguntas)
     pregunta = combined_data.get(str(num), {}).get('pregunta', "¿Cuál es tu pregunta secreta?")
 
@@ -108,13 +121,16 @@ def registro():
         CampoPr = None
         admin = False
 
+        # Verifica si el usuario ya existe
         existing_user = User.query.filter_by(email=email).first()
         if existing_user:
             return render_template('registro.html', error='El correo ya existe')
 
+        # Asigna el rol de administrador si se proporciona la clave correcta
         if 'admin' in request.form and request.form['admin'] == con_admin:
             admin=True
         
+        # Crea un nuevo usuario y lo guarda en la base de datos
         new_user = User( cod_empresa=cod_empresa, email=email, nombre=nombre, apellido=apellido, genero=genero, edad=edad, rol=rol, CampoPr= CampoPr, admin=admin)
         new_user.set_password(password)
         new_user.set_pregunta(preg_sec)
@@ -128,6 +144,9 @@ def registro():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    """
+    Gestiona la autenticación de usuarios.
+    """
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
@@ -146,6 +165,9 @@ def login():
 
 @app.route('/cambiarcontraseña', methods=['GET', 'POST'])
 def cambiar_contraseña():
+    """
+    Permite a los usuarios cambiar su contraseña.
+    """
     if request.method == 'POST':
         email = request.form['email']
         res_sec = request.form['res_sec']
@@ -168,6 +190,9 @@ def cambiar_contraseña():
 
 @app.route('/logout')
 def logout():
+    """
+    Cierra la sesión del usuario.
+    """
     session.pop('user_id', None)
     session.pop('nombre', None)
     session.pop = ('admin', None)
@@ -175,6 +200,10 @@ def logout():
 
 @app.route("/esta_logeado")
 def esta_logeado():
+    """
+    Verifica si el usuario está logeado antes de iniciar un test/cuestionario
+    y lo redireciona según lo esperado.
+    """
     test = request.args.get('test')
     file = request.args.get('file')
     session['file'] = file
@@ -194,6 +223,9 @@ def esta_logeado():
     
 @app.route("/invitado",  methods=['GET', 'POST'])
 def datos_invitado():
+    """
+    Recoge el ingreso de datos para usuarios invitados.
+    """
     test = request.args.get('test', default=False, type=bool)
 
     if request.method == 'POST':
@@ -206,13 +238,14 @@ def datos_invitado():
         CampoPr = request.form['CampoPr']
         admin = False
 
+        # Verificar si ya existe un usuario invitado
         count = User.query.filter_by(nombre='invitado').count()
         if count == 0:
             invitado = User(cod_empresa=cod_empresa, email='example@gmail.com', nombre=nombre, apellido=apellido, genero=genero, edad=edad, rol=rol, CampoPr= CampoPr, admin=admin)
             invitado.set_password('soyelinvitado')
             invitado.set_pregunta('soyelinvitado') 
             db.session.add(invitado)
-        else:
+        else: # Si ya existe modifica los datos con los nuevos
             invitado = User.query.filter_by(nombre='invitado').first()
             invitado.genero = genero
             invitado.edad = edad
@@ -232,92 +265,102 @@ def test_page(page):
     """
     Renderiza la página del test según el parámetro 'page'.
     """
-    
-    user_id = session.get('user_id')        
-    user_data = session.setdefault(user_id, {'page_counter': 1, 'total_valor': 0})
-    
-    file = session.get('file')
-    json_url = ruta_json(file)
-    with open(json_url, 'r', encoding='utf-8') as json_file:
-        combined_data = json.load(json_file)
-        id_test = combined_data.get('id','Not Found')
-        session['id_test'] = id_test
-        paginas = combined_data.get('paginas', 1)
+    try:
+        user_id = session.get('user_id')        
+        user_data = session.setdefault(user_id, {'page_counter': 1, 'total_valor': 0})
 
-    if request.method == 'POST': 
-        if 'anterior' in request.form:
-            user_data['page_counter'] = max(1, user_data['page_counter'] - 1)
+        file = session.get('file')
+        json_url = ruta_json(file)
+        with open(json_url, 'r', encoding='utf-8') as json_file:
+            combined_data = json.load(json_file)
+            id_test = combined_data.get('id','Not Found')
+            session['id_test'] = id_test
+            paginas = combined_data.get('paginas', 1)
+
+        if request.method == 'POST': 
+            if 'anterior' in request.form:
+                user_data['page_counter'] = max(1, user_data['page_counter'] - 1)
+                session['page_counter'] = user_data['page_counter']
+                return redirect(url_for('test_page', page=user_data['page_counter']))
+
+            selected_option = request.form.get('option')
+            for option in combined_data.get(page, {'opciones': []})['opciones']:
+                if option['nombre'] == selected_option:
+                    user_data['total_valor'] += option['valor']/paginas
+                    session['total_valor'] = user_data['total_valor']
+                    break
+
+            user_data['page_counter'] += 1
             session['page_counter'] = user_data['page_counter']
-            return redirect(url_for('test_page', page=user_data['page_counter']))
 
-        selected_option = request.form.get('option')
-        for option in combined_data.get(page, {'opciones': []})['opciones']:
-            if option['nombre'] == selected_option:
-                user_data['total_valor'] += option['valor']/paginas
-                session['total_valor'] = user_data['total_valor']
-                break
+            if 'finish' in request.form or user_data['page_counter'] > paginas:
+                session.pop(user_id, None)
+                return redirect(url_for('resultado_page'))
+            else:
+                return redirect(url_for('test_page', page=user_data['page_counter']))
 
-        user_data['page_counter'] += 1
-        session['page_counter'] = user_data['page_counter']
-        
-        if 'finish' in request.form or user_data['page_counter'] > paginas:
-            session.pop(user_id, None)
-            return redirect(url_for('resultado_page'))
-        else:
-            return redirect(url_for('test_page', page=user_data['page_counter']))
+        data = combined_data.get(page, {'opciones': []})
+        pregunta = combined_data.get(page, {}).get('pregunta', '')
 
+        session[user_id] = user_data
 
-    data = combined_data.get(page, {'opciones': []})
-    pregunta = combined_data.get(page, {}).get('pregunta', '')
+        return render_template(f'test_escenario.html', data=data, page_counter=user_data['page_counter'], paginas=paginas, pregunta=pregunta)
+    
+    except Exception as e:
+        return redirect(url_for('inicio', error='Test corrupto póngase en contacto con un administrador.'))
 
-    session[user_id] = user_data
-
-    return render_template(f'test_escenario.html', data=data, page_counter=user_data['page_counter'],paginas=paginas, pregunta=pregunta)
 
 @app.route("/cuestionario/p<path:page>", methods=['GET', 'POST'])
 def cuestionario_page(page):
     """
     Renderiza la página del cuestionario según el parámetro 'page'.
     """
-    user_id = session.get('user_id')        
-    user_data = session.setdefault(user_id, {'page_counter': 1, 'total_valor': 0})
-    
-    file = session.get('file')
-    json_url = ruta_json(file)
-    with open(json_url, 'r', encoding='utf-8') as json_file:
-        combined_data = json.load(json_file)
-        id_cuestionario = combined_data.pop("id")
-        session['id_test'] = id_cuestionario        
-        paginas = len(combined_data)
+    try:
+        user_id = session.get('user_id')        
+        user_data = session.setdefault(user_id, {'page_counter': 1, 'total_valor': 0})
 
-    if request.method == 'POST': 
-        if 'anterior' in request.form:
-            user_data['page_counter'] = max(1, user_data['page_counter'] - 1)
+        file = session.get('file')
+        json_url = ruta_json(file)
+        with open(json_url, 'r', encoding='utf-8') as json_file:
+            combined_data = json.load(json_file)
+            id_cuestionario = combined_data.pop("id")
+            session['id_test'] = id_cuestionario        
+            paginas = len(combined_data)
+
+        if request.method == 'POST': 
+            if 'anterior' in request.form:
+                user_data['page_counter'] = max(1, user_data['page_counter'] - 1)
+                session['page_counter'] = user_data['page_counter']
+                return redirect(url_for('cuestionario_page', page=user_data['page_counter']))
+
+            selected_option = request.form.get('opcion')
+            if selected_option:
+                selected_option = float(selected_option)
+                user_data['total_valor'] += selected_option
+                session['total_valor'] = user_data['total_valor']/paginas
+            user_data['page_counter'] += 1
             session['page_counter'] = user_data['page_counter']
-            return redirect(url_for('cuestionario_page', page=user_data['page_counter']))
 
-        selected_option = request.form.get('opcion')
-        if selected_option:
-            selected_option = float(selected_option)
-            user_data['total_valor'] += selected_option
-            session['total_valor'] = user_data['total_valor']/paginas
-        user_data['page_counter'] += 1
-        session['page_counter'] = user_data['page_counter']
-        
-        if 'finish' in request.form or user_data['page_counter'] > paginas:
-            session.pop(user_id, None)
-            return redirect(url_for('resultado_page'))
-        else:
-            return redirect(url_for('cuestionario_page', page=user_data['page_counter']))
+            if 'finish' in request.form or user_data['page_counter'] > paginas:
+                session.pop(user_id, None)
+                return redirect(url_for('resultado_page'))
+            else:
+                return redirect(url_for('cuestionario_page', page=user_data['page_counter']))
 
+        data = combined_data.get(page, {})
+        session[user_id] = user_data
 
-    data = combined_data.get(page, {})
-    session[user_id] = user_data
+        return render_template(f'cuestionario.html', data=data, page_counter=user_data['page_counter'], paginas=paginas)
 
-    return render_template(f'cuestionario.html', data=data, page_counter=user_data['page_counter'],paginas=paginas)
+    except Exception as e:
+        return redirect(url_for('inicio', error='Cuestionario corrupto póngase en contacto con un administrador.'))
+
 
 @app.route("/resultado")
 def resultado_page():
+    """
+    Muestra los resultados del test/cuestionario.
+    """
     total_valor = session.get('total_valor', 0)*10
     total_valor = round(total_valor,2)
     id_test = session.get('id_test','Not Found')
@@ -329,19 +372,32 @@ def resultado_page():
 @app.route("/usuarios")
 def mostrar_usuarios():
     """
-    Consulta y muestra todos los usuarios en HTML.
+    Consulta y muestra todos los usuarios en HTML con paginación.
     """
-    usuarios = User.query.all()
-    return render_template("usuarios.html", usuarios=usuarios)
+    page = request.args.get('page', 1, type=int)
+    per_page = 10
+    usuarios_paginated = User.query.paginate(page=page, per_page=per_page, error_out=False)
+
+    next_url = url_for('mostrar_usuarios', page=usuarios_paginated.next_num) if usuarios_paginated.has_next else None
+    prev_url = url_for('mostrar_usuarios', page=usuarios_paginated.prev_num) if usuarios_paginated.has_prev else None
+    
+    return render_template("usuarios.html", usuarios=usuarios_paginated.items, next_url=next_url, prev_url=prev_url)
+
 
 @app.route("/resultados")
 def mostrar_resultados():
     """
-    Consulta y muestra todos los resultados en HTML.
+    Consulta y muestra todos los resultados en HTML con paginación.
     """
-    resultados = Resultados.query.all()
+    page = request.args.get('page', 1, type=int)
+    per_page = 10
+    resultados_paginated = Resultados.query.paginate(page=page, per_page=per_page, error_out=False)
+
+    next_url = url_for('mostrar_resultados', page=resultados_paginated.next_num) if resultados_paginated.has_next else None
+    prev_url = url_for('mostrar_resultados', page=resultados_paginated.prev_num) if resultados_paginated.has_prev else None
     
-    return render_template("resultados.html", resultados=resultados)
+    return render_template("resultados.html", resultados=resultados_paginated.items, next_url=next_url, prev_url=prev_url)
+
 
 @app.route("/descargar_resultados")
 def descargar_resultados():
@@ -354,8 +410,8 @@ def descargar_resultados():
     with open(ruta_archivo, mode='w', newline='') as file:
         writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
-        cabezera = ['Usuario', 'Fecha', 'Id_Test', 'Puntuacion']
-        writer.writerow(cabezera)
+        cabecera = ['Usuario', 'Fecha', 'Id_Test', 'Puntuacion']
+        writer.writerow(cabecera)
         
         for resultado in resultados:
             writer.writerow([

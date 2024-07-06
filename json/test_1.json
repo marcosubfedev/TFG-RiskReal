@@ -8,25 +8,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_1/P1_1.png"
+        "imagen": "/static/img/Test1/P_1/P1_1.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_1/P1_2.png"
+        "imagen": "/static/img/Test1/P_1/P1_2.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_1/P1_3.png"
+        "imagen": "/static/img/Test1/P_1/P1_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_1/P1_4.png"
+        "imagen": "/static/img/Test1/P_1/P1_4.PNG"
       }
     ]
   },
@@ -37,25 +37,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_2/P2_1.png"
+        "imagen": "/static/img/Test1/P_2/P2_1.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_2/P2_2.png"
+        "imagen": "/static/img/Test1/P_2/P2_2.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_2/P2_3.png"
+        "imagen": "/static/img/Test1/P_2/P2_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_2/P2_4.png"
+        "imagen": "/static/img/Test1/P_2/P2_4.PNG"
       }
     ]
   },
@@ -66,25 +66,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_3/P3_1.png"
+        "imagen": "/static/img/Test1/P_3/P3_1.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_3/P3_2.png"
+        "imagen": "/static/img/Test1/P_3/P3_2.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_3/P3_3.png"
+        "imagen": "/static/img/Test1/P_3/P3_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_3/P3_4.png"
+        "imagen": "/static/img/Test1/P_3/P3_4.PNG"
       }
     ]
   },
@@ -95,25 +95,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_4/P4_1.png"
+        "imagen": "/static/img/Test1/P_4/P4_1.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_4/P4_2.png"
+        "imagen": "/static/img/Test1/P_4/P4_2.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_4/P4_3.png"
+        "imagen": "/static/img/Test1/P_4/P4_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_4/P4_4.png"
+        "imagen": "/static/img/Test1/P_4/P4_4.PNG"
       }
     ]
   },
@@ -124,25 +124,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_5/P5_1.png"
+        "imagen": "/static/img/Test1/P_5/P5_1.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_5/P5_2.png"
+        "imagen": "/static/img/Test1/P_5/P5_2.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_5/P5_3.png"
+        "imagen": "/static/img/Test1/P_5/P5_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_5/P5_4.png"
+        "imagen": "/static/img/Test1/P_5/P5_4.PNG"
       }
     ]
   },
@@ -153,25 +153,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_6/P6_1.png"
+        "imagen": "/static/img/Test1/P_6/P6_1.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_6/P6_2.png"
+        "imagen": "/static/img/Test1/P_6/P6_2.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_6/P6_3.png"
+        "imagen": "/static/img/Test1/P_6/P6_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_6/P6_4.png"
+        "imagen": "/static/img/Test1/P_6/P6_4.PNG"
       }
     ]
   },
@@ -182,25 +182,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_7/P7_1.png"
+        "imagen": "/static/img/Test1/P_7/P7_1.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_7/P7_2.png"
+        "imagen": "/static/img/Test1/P_7/P7_2.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_7/P7_3.png"
+        "imagen": "/static/img/Test1/P_7/P7_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_7/P7_4.png"
+        "imagen": "/static/img/Test1/P_7/P7_4.PNG"
       }
     ]
   },
@@ -211,25 +211,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_8/P8_1.png"
+        "imagen": "/static/img/Test1/P_8/P8_1.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_8/P8_2.png"
+        "imagen": "/static/img/Test1/P_8/P8_2.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_8/P8_3.png"
+        "imagen": "/static/img/Test1/P_8/P8_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_8/P8_4.png"
+        "imagen": "/static/img/Test1/P_8/P8_4.PNG"
       }
     ]
   },
@@ -240,25 +240,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_9/P9_1.png"
+        "imagen": "/static/img/Test1/P_9/P9_1.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_9/P9_2.png"
+        "imagen": "/static/img/Test1/P_9/P9_2.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_9/P9_3.png"
+        "imagen": "/static/img/Test1/P_9/P9_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_9/P9_4.png"
+        "imagen": "/static/img/Test1/P_9/P9_4.PNG"
       }
     ]
   },
@@ -269,25 +269,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_10/P10_1.png"
+        "imagen": "/static/img/Test1/P_10/P10_1.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_10/P10_1.png"
+        "imagen": "/static/img/Test1/P_10/P10_1.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_10/P10_3.png"
+        "imagen": "/static/img/Test1/P_10/P10_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_10/P10_4.png"
+        "imagen": "/static/img/Test1/P_10/P10_4.PNG"
       }
     ]
   },
@@ -298,25 +298,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_11/P11_1.png"
+        "imagen": "/static/img/Test1/P_11/P11_1.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_11/P11_2.png"
+        "imagen": "/static/img/Test1/P_11/P11_2.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_11/P11_3.png"
+        "imagen": "/static/img/Test1/P_11/P11_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_11/P11_4.png"
+        "imagen": "/static/img/Test1/P_11/P11_4.PNG"
       }
     ]
   },
@@ -327,25 +327,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_12/P12_2.png"
+        "imagen": "/static/img/Test1/P_12/P12_2.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_12/P12_1.png"
+        "imagen": "/static/img/Test1/P_12/P12_1.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_12/P12_3.png"
+        "imagen": "/static/img/Test1/P_12/P12_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_12/P12_4.png"
+        "imagen": "/static/img/Test1/P_12/P12_4.PNG"
       }
     ]
   },
@@ -356,25 +356,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_13/P13_1.png"
+        "imagen": "/static/img/Test1/P_13/P13_1.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_13/P13_2.png"
+        "imagen": "/static/img/Test1/P_13/P13_2.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_13/P13_3.png"
+        "imagen": "/static/img/Test1/P_13/P13_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_13/P13_4.png"
+        "imagen": "/static/img/Test1/P_13/P13_4.PNG"
       }
     ]
   },
@@ -385,25 +385,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_14/P14_1.png"
+        "imagen": "/static/img/Test1/P_14/P14_1.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_14/P14_2.png"
+        "imagen": "/static/img/Test1/P_14/P14_2.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_14/P14_3.png"
+        "imagen": "/static/img/Test1/P_14/P14_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_14/P14_4.png"
+        "imagen": "/static/img/Test1/P_14/P14_4.PNG"
       }
     ]
   },
@@ -414,25 +414,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_15/P15_1.png"
+        "imagen": "/static/img/Test1/P_15/P15_1.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_15/P15_2.png"
+        "imagen": "/static/img/Test1/P_15/P15_2.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_15/P15_3.png"
+        "imagen": "/static/img/Test1/P_15/P15_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_15/P15_4.png"
+        "imagen": "/static/img/Test1/P_15/P15_4.PNG"
       }
     ]
   },
@@ -443,25 +443,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_16/P16_1.png"
+        "imagen": "/static/img/Test1/P_16/P16_1.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_16/P16_2.png"
+        "imagen": "/static/img/Test1/P_16/P16_2.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_16/P16_3.png"
+        "imagen": "/static/img/Test1/P_16/P16_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_16/P16_4.png"
+        "imagen": "/static/img/Test1/P_16/P16_4.PNG"
       }
     ]
   },
@@ -472,25 +472,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_17/P17_1.png"
+        "imagen": "/static/img/Test1/P_17/P17_1.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_17/P17_2.png"
+        "imagen": "/static/img/Test1/P_17/P17_2.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_17/P17_3.png"
+        "imagen": "/static/img/Test1/P_17/P17_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_17/P17_4.png"
+        "imagen": "/static/img/Test1/P_17/P17_4.PNG"
       }
     ]
   },
@@ -501,25 +501,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_18/P18_1.png"
+        "imagen": "/static/img/Test1/P_18/P18_1.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_18/P18_2.png"
+        "imagen": "/static/img/Test1/P_18/P18_2.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_18/P18_3.png"
+        "imagen": "/static/img/Test1/P_18/P18_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_18/P18_4.png"
+        "imagen": "/static/img/Test1/P_18/P18_4.PNG"
       }
     ]
   },
@@ -530,25 +530,25 @@
         "id": 1,
         "nombre": "1",
         "valor": 0.7,
-        "imagen": "/static/img/Test1/P_19/P19_1.png"
+        "imagen": "/static/img/Test1/P_19/P19_1.PNG"
       },
       {
         "id": 2,
         "nombre": "2",
         "valor": 0.5,
-        "imagen": "/static/img/Test1/P_19/P19_2.png"
+        "imagen": "/static/img/Test1/P_19/P19_2.PNG"
       },
       {
         "id": 3,
         "nombre": "3",
         "valor": 0.3,
-        "imagen": "/static/img/Test1/P_19/P19_3.png"
+        "imagen": "/static/img/Test1/P_19/P19_3.PNG"
       },
       {
         "id": 4,
         "nombre": "4",
         "valor": 1,
-        "imagen": "/static/img/Test1/P_19/P19_4.png"
+        "imagen": "/static/img/Test1/P_19/P19_4.PNG"
       }
     ]
   }

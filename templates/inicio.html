@@ -83,6 +83,15 @@
             </div>
         </header>
 
+         <!-- Error Message -->
+         {% if request.args.get('error') %}
+         <div class="container mt-4">
+             <div class="alert alert-danger" role="alert">
+                 {{ request.args.get('error') }}
+             </div>
+         </div>
+         {% endif %}
+
         <!-- Inscribirse Section -->
         <section id="inscribirse" class="section-padding bg-light">
             <div class="container">

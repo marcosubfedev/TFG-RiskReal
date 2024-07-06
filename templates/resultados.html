@@ -76,9 +76,17 @@
                 </tbody>
             </table>
         </div>
-        <a href="{{ url_for('descargar_resultados') }}" class="btn btn-success button-custom text-center">Descargar
-            CSV</a>
-        <a href="{{ url_for('inicio') }}" class="btn btn-primary button-custom text-center">Inicio</a>
+        <div class="d-flex justify-content-between">
+            {% if prev_url %}
+            <a href="{{ prev_url }}" class="btn button-custom btn-secondary">Anterior</a>
+            {% endif %}
+            <a href="{{ url_for('descargar_resultados') }}" class="btn btn-success button-custom text-center">Descargar
+                CSV</a>
+            <a href="{{ url_for('inicio') }}" class="btn btn-primary button-custom text-center">Inicio</a>
+            {% if next_url %}
+            <a href="{{ next_url }}" class="btn button-custom btn-secondary">Siguiente</a>
+            {% endif %}
+        </div>
     </div>
 
     <!-- Footer -->
