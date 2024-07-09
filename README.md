@@ -13,10 +13,10 @@ De esta manera se plantea la utilización de tests para poder evaluar las Soft S
 
 ## Instalación de RiskReal como desarrollador del proyecto
 
-Para poder realizar una instalación se explica detalladamente  en el anexo D de este [fichero](https://github.com/muf1002/TFG-RiskReal/blob/main/latex/anexos.pdf), mostrando las diferentes instalaciones previas necesarias y los pasos a seguir correspondientes.
+Para poder realizar una instalación se explica detalladamente  en el anexo D de este [fichero](https://github.com/muf1002/TFG-RiskReal/blob/main/latex/anexos_RiskReal.pdf), mostrando las diferentes instalaciones previas necesarias y los pasos a seguir correspondientes.
 
 ## Instalación de RiskReal como usuario
 
-Para poder realizar una instalación se explica detalladamente  en el anexo E de este [fichero](https://github.com/muf1002/TFG-RiskReal/blob/main/latex/anexos.pdf), mostrando como realizar la  instalacion de Docker, la descarga de este [fichero comprimido](https://drive.google.com/file/d/1IkoLn0codu3tQItd_Ih4hI82Km6nmmN5/view) y como poder ejecutarlo.
+Para poder realizar una instalación se explica detalladamente  en el anexo E de este [fichero](https://github.com/muf1002/TFG-RiskReal/blob/main/latex/anexos_RiskReal.pdf), mostrando como realizar la  instalacion de Docker, la descarga de este [fichero comprimido](https://drive.google.com/file/d/1IkoLn0codu3tQItd_Ih4hI82Km6nmmN5/view) y como poder ejecutarlo.
 
 Posteriormente se encuentra una descripción de las diferentes acciones que proporciona la aplicación.
