@@ -2,39 +2,247 @@
 
 \section{Introducción}
 
-Una muestra de cómo podría ser una tabla de casos de uso:
+En este anexo se describirán diferentes aspectos acerca de los requisitos del proyecto.
 
-% Caso de Uso 1 -> Consultar Experimentos.
+\section{Objetivos generales}
+\begin{enumerate}
+    \item Desarrollo de dos funciones independientes capaces de desglosar un json, con el fin de obtener por una parte el número total de preguntas que contiene y por otra parte todos los elementos necesarios para mostrar el test completo, así el usuario tiene la capacidad de realizar cualquier tipo de test o cuestionario disponible en la página.
+    \item Crear una aplicación que responda al usuario correctamente asegurándonos de realizar lo marcado y que el propio usuario sienta el cambio o su posible cambio.  
+    \item Posibilidad de poder descargar todos los datos del test para los administradores, con el fin de poder hacer estudios a parte o sacar valores como la moda para poder realizar tests o cuestionarios acorde a lo solicitado.
+    \item Garantizar que la aplicación tenga un rendimiento estable y que sea sostenible, además de ser “responsive” ante todo tipos de dispositivos móviles y tabletas a parte del navegador web de un ordenador.
+\end{enumerate}
+\section{Catálogo de requisitos}
+\subsection{Requisitos Funcionales}
+Son aquellos requisitos cuya característica se espera en el proyecto.
+\begin{itemize}
+    \item \textbf{RF-1 Tratamiento de usuarios:} Se requiere que el sistema sea capaz de tratar a los usuarios
+    \begin{itemize}
+        \item \textbf{RF-1.1 Registro:} El sistema debe ser capaz de crear nuevos usuarios.
+        \item \textbf{RF-1.2 Inicio Sesión:} El sistema debe ser capaz de crear una sesión  para el usuario.
+        \item \textbf{RF-1.3 Cerrar Sesión:} El sistema debe permitir cerrar la sesión  del usuario.
+        \item \textbf{RF-1.4 Cambio de contraseña:} El sistema puede cambiar la contraseña del usuario que lo desee.
+        \item \textbf{RF-1.5 Participación como Invitado:} El sistema debe ser capaz de permitir a un usuario que no esté registrado interactuar con la aplicación.
+    \end{itemize}
+    \item \textbf{RF-2 Tratamiento de pruebas:} Se requiere que el sistema soporte las diferentes formas de evaluarse.
+    \begin{itemize}
+        \item \textbf{RF-2.1 Realización de tests/cuestionarios:} El sistema debe dejar realizar tanto a un usuario o invitado a realizar cualquier tipo de test y cuestionario.
+        \item \textbf{RF-2.2 Navegación en los test/cuestionarios:} El sistema debe permitir al usuario poder moverse entre las cuestiones o salirse de el en caso de que no quiera continuarlo.
+        \item \textbf{RF-2.3 Calculo y almacenamiento de los resultados:} El sistema debe mostrar la calificación correspondiente y almacenarla en la BBDD.
+    \end{itemize}
+    \item \textbf{RF-3 Visualización de datos:} Se requiere que el sistema tenga una forma de poder ver los datos generados por la aplicación.
+    \begin{itemize}
+        \item \textbf{RF-3.1 Visualización de los usuarios:} El sistema debe dejar ver a los administradores todos los usuarios que estén  registrados en la plataforma.
+        \item \textbf{RF-3.2 Visualización de los resultados:} El sistema debe dejar ver a los administradores todos los resultados de los test y cuestionarios que estén  en la plataforma.
+    \end{itemize}
+    \item \textbf{RF-4 Exportación de datos:} El sistema debe dejar a los administrador poder exportar todos los resultados en un archivo "resultados.csv"
+\end{itemize}
+\subsection{Requisitos no Funcionales}
+Son aquellos requisitos que definen como se debe comportar el programa en cualquier momento.
+\begin{itemize}
+    \item \textbf{RNF-1 Seguridad:} Se requiere un mínimo de seguridad con el tratamiento de datos sensibles.
+    \begin{itemize}
+        \item \textbf{RNF-1.1 Datos hash:} Las contraseñas y las respuestas a la pregunta secretas se guardan como valores hash.
+        \item \textbf{RNF-1.2 Claves secretas:} Se dispone de una secret\_key para la gestión de sesiones
+    \end{itemize}
+    \item \textbf{RNF-2 Rendimiento:} La aplicación debe mantener un rendimiento para evitar tiempos largos de carga.
+    \item \textbf{RNF-3 Escalabilidad:} La aplicación es capaz de manejar múltiples usuarios simultaneamente incluyendo usuarios repetidos e invitados.
+    \item \textbf{RNF-4 Usabilidad:} La aplicación es comprensible para los usuarios.
+    \begin{itemize}
+        \item \textbf{RNF-4.1 Navegación intuitiva:} La interfaz del usuario es intuitiva y permite una fácil navegación entre las funcionalidades
+        \item \textbf{RNF-4.2 Tratamiento de errores:} Siempre que ocurra un error se mostrara por pantalla, para que en caso de introducir mal los datos el usuario lo sepa o se tenga que poner en contazto con un administrador.
+    \end{itemize}
+    \item \textbf{RNF-5 Compatibilidad:} La aplicación debe ser compatible en diferentes plataformas
+    \item \textbf{RNF-6 Mantenimiento y Extensibilidad:} Es posible mantener la aplicación y añadir nuebas funcionalidades.
+    \item \textbf{RNF-7 Configuración y Despliegue:} La aplicación puede ser desplegada en diferentes entornos o cualquier servidor compatible con Flask.
+\end{itemize}
+\section{Especificación de requisitos}
+Este apartado esta reservado para explicar los casos de uso del proyecto
+\subsection{Actores}
+Se disponen de los diferentes actores en el sistema:
+\begin{itemize}
+    \item \textbf{Usuarios:} todos los usuarios que aceden a la aplicación que a su vez se desglosa en:
+    \begin{itemize}
+        \item \textbf{Usuario Registrado:} Todos aquellos que esten registrados en la pltaforma.
+        \item \textbf{Administrador:} Encargados de administrar la aplicación que a su vez son usuarios registrados.
+        \item \textbf{Invitado:} Todos aquellos que quieran evaluarse sin la necesidad de registrarse.
+    \end{itemize}
+    \item \textbf{Sistema:} Se encarga de toda la lógica y procesar la informacíon recibida por los diferentes usuarios.
+\end{itemize}
+
+\subsection{Diagrama de Casos de Uso}
+El diagrama de casos de uso que contiene los diferentes actores.
+
+\imagen{DiagramaCasosDeUso}{Diagrama de Casos de Uso}
+
+\subsection{Casos de Uso}
+Los diferentes casos de uso correspondientes al proyecto.
+
 \begin{table}[p]
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
-		\textbf{CU-1}    & \textbf{Ejemplo de caso de uso}\\
+		\textbf{CU-1}    & \textbf{Registro de Usuario}\\
 		\toprule
 		\textbf{Versión}              & 1.0    \\
-		\textbf{Autor}                & Alumno \\
-		\textbf{Requisitos asociados} & RF-xx, RF-xx \\
-		\textbf{Descripción}          & La descripción del CU \\
-		\textbf{Precondición}         & Precondiciones (podría haber más de una) \\
+		\textbf{Autor}                & Marcos Ubierna Fernández \\
+		\textbf{Requisitos asociados} & RF-1.1 \\
+		\textbf{Descripción}          & El usuario puede registrarse proporcionando su información personal. \\
+		\textbf{Precondición}         & El usuario no debe estar registrado previamente. \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pasos del CU
-			\item Pasos del CU (añadir tantos como sean necesarios)
+			\item El usuario navega a la página de registro.
+			\item El usuario ingresa su correo electrónico, nombre, apellido, género, edad, rol, una pregunta secreta y una contraseña.
+                \item El sistema verifica que el correo electrónico no esté registrado.
+                \item El sistema almacena la información del usuario en la base de datos.
+                \item El sistema muestra un mensaje de confirmación de registro exitoso.
 		\end{enumerate}\\
-		\textbf{Postcondición}        & Postcondiciones (podría haber más de una) \\
-		\textbf{Excepciones}          & Excepciones \\
-		\textbf{Importancia}          & Alta o Media o Baja... \\
+		\textbf{Postcondición}        & El usuario está registrado y puede iniciar sesión. \\
+		\textbf{Excepciones}          & El correo electrónico ya está registrado: el sistema muestra un mensaje de error. \\
+		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-1 Nombre del caso de uso.}
+	\caption{CU-1  Registro de Usuario.}
 \end{table}
 
-\section{Objetivos generales}
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-2}    & \textbf{Inicio de Sesión}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Marcos Ubierna Fernández \\
+		\textbf{Requisitos asociados} & RF-1.2, RF-1.3 \\
+		\textbf{Descripción}          & El usuario puede iniciar sesión con su correo electrónico y contraseña. \\
+		\textbf{Precondición}         & El usuario debe estar registrado. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+		      \item El usuario navega a la página de inicio de sesión.
+		      \item El usuario ingresa su correo electrónico y contraseña.
+                \item El sistema verifica las credenciales.
+                \item Si las credenciales son correctas, el sistema crea una sesión para el usuario.
+                \item El sistema redirige al usuario a la página principal.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario está autenticado y puede acceder a las funcionalidades del sistema. \\
+		\textbf{Excepciones}          & Credenciales incorrectas: el sistema muestra un mensaje de error. \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-2 Inicio de Sesión.}
+\end{table}
 
-\section{Catálogo de requisitos}
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-3}    & \textbf{Realización de Tests/Cuestionarios}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Marcos Ubierna Fernándes \\
+		\textbf{Requisitos asociados} & RF-2.1, RF-2.2 \\
+		\textbf{Descripción}          &Los usuarios pueden realizar tests y cuestionarios disponibles. \\
+		\textbf{Precondición}         & El usuario debe estar registrado o actuar como invitado. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario navega a la página de tests/cuestionarios.
+			\item El usuario selecciona un test/cuestionario.
+                \item El sistema presenta las preguntas del test/cuestionario.
+                \item El usuario responde las preguntas.
+                \item El usuario envía el test/cuestionario completado.
+                \item El sistema calcula y almacena los resultados.
+                \item El sistema muestra los resultados al usuario.
+		\end{enumerate}\\
+		\textbf{Postcondición}        &  Los resultados del test/cuestionario están almacenados en la base de datos. \\
+		\textbf{Excepciones}          & Fallo en el almacenamiento de los resultados: el sistema muestra un mensaje de error. \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-3 Realización de Tests/Cuestionarios.}
+\end{table}
 
-\section{Especificación de requisitos}
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-4}    & \textbf{Visualización de Usuarios Registrados}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Marcos Ubierna Fernández \\
+		\textbf{Requisitos asociados} & RF-3.1 \\
+		\textbf{Descripción}          & Los administradores pueden ver todos los usuarios registrados en la plataforma. \\
+		\textbf{Precondición}         & El usuario debe tener rol de administrador. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El administrador navega a la página de administración.
+			\item El administrador selecciona la opción para ver usuarios registrados.
+                \item El sistema muestra una lista paginada de usuarios registrados.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El administrador puede ver los detalles de los usuarios registrados. \\
+		\textbf{Excepciones}          & Error en la carga de usuarios: el sistema muestra un mensaje de error. \\
+		\textbf{Importancia}          & Media \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-4 Visualización de Usuarios Registrados.}
+\end{table}
 
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-5}    & \textbf{Visualización de los resultados}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Marcos Ubierna Fernández \\
+		\textbf{Requisitos asociados} & RF-3.2 \\
+		\textbf{Descripción}          & Los administradores pueden ver todos los resultados de los test/cuestionarios de la plataforma. \\
+		\textbf{Precondición}         & El usuario debe tener rol de administrador. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El administrador navega a la página de administración.
+			\item El administrador selecciona la opción para ver los resultados.
+                \item El sistema muestra una lista paginada de los resultados de los test/cuestionarios.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El administrador puede ver los detalles de los test/cuestionarios realizados. \\
+		\textbf{Excepciones}          & Error en la carga de resultados: el sistema muestra un mensaje de error. \\
+		\textbf{Importancia}          & Media \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-5 Visualización de los resultados.}
+\end{table}
 
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-6}    & \textbf{Exportación de Resultados}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Alumno \\
+		\textbf{Requisitos asociados} & RF-4 \\
+		\textbf{Descripción}          & Los administradores pueden exportar los resultados de tests/cuestionarios en un archivo CSV. \\
+		\textbf{Precondición}         & El usuario debe tener rol de administrador. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El administrador navega a la página de administración.
+			\item El administrador selecciona la opción para ver los resultados.
+                \item El administrador selecciona la opción de descargar csv.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El administrador obtiene un archivo CSV con los resultados. \\
+		\textbf{Excepciones}          & Error en la generación del archivo CSV: el sistema muestra un mensaje de error \\
+		\textbf{Importancia}          & Media \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-6 Exportación de Resultados.}
+\end{table}

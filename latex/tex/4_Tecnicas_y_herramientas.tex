@@ -1,6 +1,41 @@
 \capitulo{4}{Técnicas y herramientas}
 
-Esta parte de la memoria tiene como objetivo presentar las técnicas metodológicas y las herramientas de desarrollo que se han utilizado para llevar a cabo el proyecto. Si se han estudiado diferentes alternativas de metodologías, herramientas, bibliotecas se puede hacer un resumen de los aspectos más destacados de cada alternativa, incluyendo comparativas entre las distintas opciones y una justificación de las elecciones realizadas. 
-No se pretende que este apartado se convierta en un capítulo de un libro dedicado a cada una de las alternativas, sino comentar los aspectos más destacados de cada opción, con un repaso somero a los fundamentos esenciales y referencias bibliográficas para que el lector pueda ampliar su conocimiento sobre el tema.
+Sobre este apartado se describirán las diferentes herramientas y técnicas utilizadas para la realización del proyecto teniendo una continuidad y eficiencia.
+\subsection{Github}
+Github ~\cite{wiki:GitHub} es una plataforma para alojar proyectos utilizando el sistema de control de versiones Git. Se utiliza para alojar los diferentes cambios que se han ido implementado en un repositorio, que es lo que vendría ser un sitio en la nube donde guardar los proyectos de desarrollo software.
+
+En mi caso utilizo Github a modo de tener un control de las diferentes versiones que voy implementando y a su vez como gestor de las diferentes tareas a realizar durante los Sprints.
+\subsection{Zube}
+Zube es una extensión que se implementa sobre los repositorios de Github, con Zube utilizamos la metodología Kanban ~\cite{wiki:Kanban} que es un método para gestionar el trabajo intelectual, con énfasis en la entrega justo a tiempo, mientras no se sobrecarguen los miembros del equipo.
+
+Para el proyecto he utilizado Zube con el fin de controlar el plazo de los Sprints y asignar las diferentes tareas “issues” sobre este mismo.
+\subsection{Overleaf}
+Overleaf ~\cite{wiki:Overleaf} es un editor LaTeX colaborativo basado en la nube que se utiliza para escribir, editar y publicar documentos. Sigue un enfoque para la redacción científica y técnica de manera simple y compartida.
+
+Overleaf ha sido utilizado para el desarrollo de la memoria y anexos del proyecto.
+\subsection{Visual Studio Code} 
+Visual Studio Code ~\cite{wiki:VSC} es un editor de código fuente de código abierto el cual tiene soporte con Git para poder desarrollar un proyecto desde Github, además tiene soporte para la gran mayoría de lenguajes de programación.
+Ha sido clave para desarrollar el código del proyecto y darle una utilidad.
+\subsection{Docker}
+Docker ~\cite{wiki:Docker} es un proyecto de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software, proporcionando una capa adicional de abstracción y automatización de virtualización de aplicaciones en múltiples sistemas operativos. Docker utiliza características de aislamiento de recursos del kernel Linux, tales como cgroups y espacios de nombres (namespaces) para permitir que "contenedores" independientes se ejecuten dentro de una sola instancia de Linux, evitando la sobrecarga de iniciar y mantener máquinas virtuales.
+
+Como bien se explica sirve para contener la aplicación una vez ya tenemos preparado el entorno y funciona correctamente, de esta manera siempre que se disponga de Docker Desktop en el caso de tener una imagen del proyecto y un contenedor correspondiente a esta, se podrá ejecutar la aplicación de una forma más sencilla.
+\subsection{ChatGPT}
+ChatGPT ~\cite{wiki:ChatGPT} es una aplicación de chatbot de inteligencia artificial desarrollado en 2022 por OpenAI que se especializa en el diálogo, ha sido entrenada y es capaz de resolver cuestiones útiles respecto cualquier tema.
+Ha sido utilizado para la búsqueda de algún error producido durante el desarrollo del proyecto.
+\subsection{Flask}
+Flask ~\cite{wiki:Flask} es un framework minimalista escrito en Python que permite crear aplicaciones web, es la base sobre la cual mi proyecto se desarrolla. 
+Hay otras alternativas como Django o Streamlit, las cuales eran opciones válidas para el desarrollo pero por cuestiones de comodidad al haber utilizado anteriormente Flask y su uso durante el tiempo abalan un amplio abanico de posibilidades respecto al desarrollo. 
+\subsection{SqlAlchemy}
+SqlAlchemy ~\cite{Flask:SQLAlchemy} es una librería dependiente de Flask la cual es utilizada para el manejo de las bases de datos.
+Tiene soporte con un gran número de BBDD diferentes, al cabo de elegir sobre qué BBDD trabajar al solo disponer de dos tablas con pocos campos tome la decisión de utilizar SQLite, ya que este no utiliza un sistema de cliente-servidor disminuyendo la latencia, pero en su contraparte tiene limitado el valor de datos que puede manejar, lo cual en mi caso no es un problema al trabajar con pocos datos.
+\subsection{Migrate}
+Migrate ~\cite{Flask:Migrate} es una librería dependiente de Flask la cual es utilizada para tener guardado los diferentes cambios que se realizan a las tablas, de la misma manera se encarga de generar las tablas y de guardar los datos en estas.
+Se complementa perfectamente con SqlALchemy y al no tener una base de datos en un servidor, si utilizamos migrate tenemos la opción de guardar la instancia de la BBDD y tener acceso a ella en cualquier momento.
+\subsection{BootStrap}
+Bootstrap ~\cite{wiki:Bootstrap} es un framework multiplataforma o conjunto de herramientas de código abierto para diseño de sitios y aplicaciones web.
+Ha sido utilizado para el apartado estético de la página web utilizando una plantilla acompañándose de un archivo “.css” y de modificaciones propias de Bootstrap.
+
+
 
 

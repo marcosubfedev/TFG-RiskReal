@@ -352,12 +352,13 @@
   }
 \makeatother
 
-\newcommand{\nombre}{Nombre del alumno} %%% cambio de comando
+\newcommand{\nombre}{Marcos Ubierna Fernández} %%% cambio de comando
+\newcommand{\nombreTutor}{Raúl Marticorena Sánchez}
 
 % Datos de portada
-\title{título del TFG}
+\title{RiskReal: Desarrollo de un portal web para comprobar las soft skills}
 \author{\nombre}
-\tutor{nombre tutor}
+\tutor{\nombreTutor}
 \date{\today}
 
 \begin{document}
@@ -374,11 +375,11 @@
 
 \noindent\includegraphics[width=\textwidth]{cabecera}\vspace{1cm}
 
-\noindent D. nombre tutor, profesor del departamento de nombre departamento, área de nombre área.
+\noindent D.\nombreTutor, profesor del departamento de Ingeniería Informática, área de Lenguajes y Sistemas Informáticos.
 
 \noindent Expone:
 
-\noindent Que el alumno D. \nombre, con DNI dni, ha realizado el Trabajo final de Grado en Ingeniería Informática titulado título de TFG. 
+\noindent Que el alumno D. \nombre, con DNI 71313709R, ha realizado el Trabajo final de Grado en Ingeniería Informática titulado RiskReal. 
 
 \noindent Y que dicho trabajo ha sido realizado por el alumno bajo la dirección del que suscribe, en virtud de lo cual se autoriza su presentación y defensa.
 
@@ -392,14 +393,7 @@ En Burgos, {\large \today}
 \begin{minipage}{0.45\textwidth}
 \begin{flushleft} %\large
 Vº. Bº. del Tutor:\\[2cm]
-D. nombre tutor
-\end{flushleft}
-\end{minipage}
-\hfill
-\begin{minipage}{0.45\textwidth}
-\begin{flushleft} %\large
-Vº. Bº. del co-tutor:\\[2cm]
-D. nombre co-tutor
+D. \nombreTutor
 \end{flushleft}
 \end{minipage}
 \hfill
@@ -422,12 +416,17 @@ D. nombre co-tutor
 % Abstract en castellano
 \renewcommand*\abstractname{Resumen}
 \begin{abstract}
-En este primer apartado se hace una \textbf{breve} presentación del tema que se aborda en el proyecto.
+A la hora de determinar las cualidades que tienen las personas hay diferentes maneras, pero una de las más comunes es la utilización de las habilidades blandas “Soft Skills” para tener una idea del comportamiento sobre diferentes escenarios.
+
+De esta manera se plantea la utilización de tests para poder evaluar las Soft Skills, así surge \textbf{RiskReal} que es un portal web desde la cual se pueden realizar dos tipos de \textbf{tests} diferentes para poder determinar las Soft Skills, uno se basa en escenarios y el otro en un cuestionario más general.
+
+Lo que se plantea es tener un sistema en el cual, se pueden realizar varios test al disponer de un archivo que siga una estructura dada. Para poder resolver esto se ha tenido que hacer una extracción de que elementos utiliza el test principal, de esta manera podemos trabajar con los datos adecuados y darles forma para obtener un nuevo test que cumpla los valores iniciales.
+
 \end{abstract}
 
 \renewcommand*\abstractname{Descriptores}
 \begin{abstract}
-Palabras separadas por comas que identifiquen el contenido del proyecto Ej: servidor web, buscador de vuelos, android \ldots
+Habilidades blandas, evaluación, página web, Python, Flask, Json.
 \end{abstract}
 
 \clearpage
@@ -435,12 +434,16 @@ Palabras separadas por comas que identifiquen el contenido del proyecto Ej: serv
 % Abstract en inglés
 \renewcommand*\abstractname{Abstract}
 \begin{abstract}
-A \textbf{brief} presentation of the topic addressed in the project.
+When it comes to determining the qualities that people have, there are different ways, but one of the most common is the use of “Soft Skills” to get an idea of their behavior on different scenarios.
+
+In this way, the use of tests is proposed to evaluate the Soft Skills, thus \textbf{RiskReal} emerges, which is a web portal from which two different types of \textbf{tests} can be carried out to determine the Soft Skills, one is based on scenarios and the other on a more general questionnaire.
+
+What is proposed is to have a system in which various tests can be carried out by having a file that follows a given structure. In order to solve this, we had to extract which elements the main test uses, in this way we can work with the appropriate data and shape it to obtain a new test that meets the initial values.
 \end{abstract}
 
 \renewcommand*\abstractname{Keywords}
 \begin{abstract}
-keywords separated by commas.
+Soft Skills, assessment, web page, Python, Flask, Json.
 \end{abstract}
 
 \clearpage

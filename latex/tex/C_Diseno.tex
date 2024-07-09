@@ -2,10 +2,82 @@
 
 \section{Introducción}
 
+En este apéndice se explicará la estructura de los datos de la aplicación, el diseño procedimental y diseño arquitectónico del programa.
+
 \section{Diseño de datos}
 
+Respecto a los datos que son utilizados tenemos una BBDD donde recogemos los datos correspondientes a los usuarios y sus resultados, y por otra parte archivos json los cuales son utilizados para recoger los datos correspondientes a los tests y cuestionarios.
+
+\subsection{BBDD}
+
+Como se menciona antes tenemos dos tipos de tablas diferentes una que corresponde a los usuarios que dispone de los siguientes campos, llamada User:
+\begin{enumerate}
+    \item \textbf{Id:} Campo integer que se aumenta cada vez que se registra un nuevo usuario.
+    \item \textbf{Cod\_empresa:} Campo integer que corresponde al código  de empresa.
+    \item \textbf{Email:} Campo char que corresponde al correo electrónico del usuario.
+    \item \textbf{Password\_hash:} Campo char que corresponde a la contraseña del usuario encriptada.
+    \item \textbf{Nombre:} Campo char que corresponde al nombre del usuario.
+    \item \textbf{Apellido:} Campo char que corresponde al apellido del usuario.
+    \item \textbf{Genero:} Campo char que corresponde al género del usuario.
+    \item \textbf{Edad:} Campo integer que corresponde a la edad del usuario.
+    \item \textbf{Rol:} Campo char que corresponde al puesto que ocupa el usuario.
+    \item \textbf{CampoPr:} Campo char que corresponde a que campo profesional corresponde la empresa.
+    \item \textbf{Admin:} Campo boolean que indica si el usuario es administrador.
+    \item \textbf{Preg\_sec\_has:} Campo char que contiene la respuesta a la pregunta secreta encriptada para poder cambiar la contraseña.
+\end{enumerate}
+Por otra parte tenemos la tabla correspondiente a las calificaciones de los tests/cuestionarios, llamada Resultados:
+\begin{enumerate}
+    \item \textbf{Usuario:} Campo char que corresponde al nombre del usuario.
+    \item \textbf{Fecha:} Campo datetime que corresponde a la hora en la que se realizó  el test/cuestionario.
+    \item \textbf{Id\_test:} Campo char que corresponde al nombre del test/cuestionario.
+    \item \textbf{Puntuacion:} Campo integer que corresponde a la puntuación obtenida en el test/cuestionario.
+\end{enumerate}
+
+\imagen{DiagramaER}{Diagrama Entidad relacion}
+
+\subsection{JSON}
+Los archivos .json ~\cite{wiki:JSON} corresponden al formato de texto sencillo para el intercambio de datos. Se trata de un subconjunto de la notación literal de objetos de JavaScript, aunque, debido a su amplia adopción como alternativa a XML, se considera un formato independiente del lenguaje. 
+
+En mi caso se dispone de tres archivos .json diferentes:
+\begin{enumerate}
+    \item \textbf{Preguntas\_Secretas:} los datos corresponden a un pool de preguntas el cual siempre se puede aumentar o disminuir a placer, con el fin de tener una respuesta que se encriptara necesaria para poder realizar un cambio de contraseña.
+    \item \textbf{Tests:} Todos ellos con un formato de nombre similar a \textbf{test\_n.json} que tiene la estructura siguiente:
+    \imagen{estructuraTest}{Estructura del test}
+    
+    Como se puede observar empezamos teniendo un campo que corresponde al total de páginas que tiene el test, seguido del nombre del test correspondiente al campo id\_test de la tabla resultados, y por ultimo tenemos las diferentes preguntas las cuales se desglosan en el texto de la pregunta y posteriormente las diferentes opciones con su valor para la puntuación y la imagen asociada encontrada en la carpeta static.
+    \item \textbf{Cuestionarios:} Todos ellos con un formato de nombre similar a \textbf{cuestionario\_n.json} que tiene la estructura siguiente:
+    \imagen{estructuraCuestionario}{Estructura del cuestionario}
+    
+    Como se puede observar es más sencillo que el otro archivo json, este se desglosa en el nombre correspondiente del cuestionario y posteriormente tenemos todas las preguntas estas teniendo un campo que nos indica si la pregunta es del tipo de respuesta sí o no, o por su defecto de totalmente en desacuerdo hasta totalmente de acuerdo.
+
+\end{enumerate}
 \section{Diseño procedimental}
+En cuanto al diseño procedimental se dispone de diferentes diagramas de secuencia y uno de actividad, siendo estos:
+\begin{itemize}
+    \item \textbf{Diagramas de secuencia:}
+    \begin{itemize}
+        \item \textbf{Registro de Usuario.} 
+        \item \textbf{Inicio de Sesión.}
+        \item \textbf{Exportación de Resultados.}
+    \end{itemize}
+    \item \textbf{Diagrama de actividad:}
+    \begin{itemize}
+        \item \textbf{Realización de test/cuestionario.} 
+    \end{itemize}
+\end{itemize}
+
+\imagen{diagramaSecuenciaRegistro}{Diagramas de secuencia: Registro de Usuario}
+\imagen{diagramaSecuenciaLogin}{Diagramas de secuencia: Inicio de Sesión}
+\imagen{diagramaSecuenciaCSV}{Diagramas de secuencia: Exportación de Resultados}
+\imagen{diagramaActividadRealizarEvaluacion}{Diagramas de actividad: Realización de test/cuestionario}
 
 \section{Diseño arquitectónico}
-
-
+Para el diseño arquitectónico del proyecto se ha llevado a cabo la utilización del patrón de diseño MVC (Modelo-Vista-Controlador).
+\subsection{Patrón MVC}
+El MVC ~\cite{wiki:MVC} se basa en la utilización de tres componentes con el fin de a partir de un controlador utilizar un modelo para representar una vista, en mi caso cada componente corresponde a:
+\begin{itemize}
+    \item \textbf{Modelo:} Se corresponde a los datos utilizados. En mi caso los archivos json y las tablas mencionadas en el apartado anterior.
+    \item \textbf{Vista:} Es el encargado de mostrar los datos al usuario para interactuar con ellos. En mi caso son los ficheros html.
+    \item \textbf{Controlador:} Es el encargado de llevar la lógica para que los datos utilizados se muestren correctamente. En mi caso el archivo main.py.
+\end{itemize}
+\imagen{MVC}{Patrón MVC}

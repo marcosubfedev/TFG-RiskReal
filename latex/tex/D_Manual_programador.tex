@@ -1,27 +1,88 @@
 \apendice{Documentación técnica de programación}
 
 \section{Introducción}
-
+En este apartado se implementaran  los conocimientos necesarios para la instalación y funcionamiento  de la aplicación. Esto incluye aspectos como la diferente estructura de los directorios, instalación y uso del entorno de desarrollo, y la propia compilación, instalación y ejecución del proyecto.
 \section{Estructura de directorios}
-Todo el código se encuentra en \textbf{mayn.py}, el resto de ficheros de la raíz son ficheros de las paginas y miscelania utilizada, se modificaran aquellos que sean necesario respecto a su uso en el codigo.
+Todo el código se encuentra en \textbf{main.py}, el resto de ficheros de la raíz son ficheros de las páginas y miscelánea utilizada, se modificaran aquellos que sean necesario respecto a su uso en el código.
 \begin{enumerate}
-    \item \textbf{json/}: Contiene todos los ficheros json con los datos de los test.
-    \item \textbf{static/img/}: Contiene las imágenes utilizadas en los json.
-    \item \textbf{templayes/}: Contiene los archivos html de las diferentes páginas de la aplicación.
-\end{enumerate}
+    \item \textbf{json/}: Contiene todos los ficheros json con los datos de los test.    
+    \item \textbf{static/assets/}: Contiene imágenes e iconos utilizados en los html.
+    \item \textbf{static/css/}: Contiene los diferentes archivos css para modificar la vista de los archivos html.
+    \item \textbf{static/gifs/}: Contiene los diferentes archivos gifs que se introducen en los propios html.
+    \item \textbf{static/img/}: Contiene las carpetas de los diferentes test con las imágenes utilizadas en los json.
+    \item \textbf{static/js/}: Contiene ficheros de java script utilizados por bootstrap.
+    \item \textbf{templates/}: Contiene los archivos html de las diferentes páginas de la aplicación.
+\end{enumerate} 
 \section{Manual del programador}
+En este apartado tendremos los pasos para instalar los entornos sobre el que se trabaja.
+\subsection{Instalación de Visual Studio Code}
+En caso de no tener \textbf{Visual Studio Code} en el sistema, nos descargaremos la versión correspondiente para nuestro sistema operativo \href{https://code.visualstudio.com/}{página oficial} una vez descargado el ejecutable lo lanzamos y completamos la instalación.
+\subsection{Instalación de Python}
+Para poder tener python en nuestro ordenador deberemos descargar la versión que se encuentra en la \href{https://www.python.org/downloads/}{página oficial} correspondiente para nuestro sistema operativo.
+Una vez lo tengamos ya descargado inicializamos él .exe y marcamos la opción que dice textualmente  "Add python.exe to PATH", realizamos la instalación y una vez se termine seguiremos con el siguiente paso.
+En caso de no tener \textbf{Python} en \textbf{Visual Studio Code}, seguiremos los siguientes pasos:
+\begin{enumerate}
+    \item En la barra de la izquierda de \textbf{Visual Studio Code} seleccionamos la opción de Extensions.
+    \item En el buscador introduccimos \textbf{Python}
+    \item Seleccionamos la primera opción la cual tiene como desarrollador Microsoft y la instalamos.
+\end{enumerate}
+\subsection{Instalación de Git}
+Para poder llevar la versión del proyecto al día utilizaremos git el cual se vinculara solo con \textbf{Visual Studio Code}, para instalarlo nos dirigiremos a la \href{https://git-scm.com/download/win}{página oficial} y nos descargamos el instalador, una vez ya lo tengamos ejecutamos él .exe y lo instalamos en nuestro dispositivo.
+\subsection{Instalación de Docker}
+\label{InstDocker}
+Para poder descargar correctamente \textbf{Docker} hay que seguir correctamente estos \href{https://docs.docker.com/desktop/install/windows-install/}{pasos}, como referencia se pueden seguir los pasos del siguiente \href{https://www.youtube.com/watch?v=ZO4KWQfUBBc}{video} el cual realiza los pasos de forma secuencial y así podemos comprobar que realizamos correctamente la instalación.
+\subsubsection{Descarga del proyecto}
+Para poder tener los ficheros fuentes, en el lugar que se desea hacemos click derecho y selecionamos \textbf{Open Git Bash here}, una vez se nos abra la terminal introduciremos el siguiente comando para descargar los ficheros fuentes directamente del repositorio:
+
+\begin{itemize}
+    \item git clone https://github.com/muf1002/TFG-RiskReal.git
+\end{itemize}
+
+\imagen{clone}{Comando para clonar el repositorio}
+
+Posteriormente desde \textbf{Visual Studio Code} damos la opción de open folder o nos dirigimos en la barra de tareas superior donde se encuentra también, seleccionamos la carpeta fuente tras clonarlo y de esta manera tendríamos los ficheros en el entorno.
 
 \section{Compilación, instalación y ejecución del proyecto}
-a la hora de instalar el proyecto en \textbf{Visual Studio Code} una vez tengamos el repositorio clonado y dispongamos de \textbf{python} instalado, seguiremos las siguientes indicaciones para completar la instalazión y poder ejecutarlo.
+Una vez tengamos los pasos previos seguiremos las siguientes indicaciones para completar la instalación y poder ejecutarlo, es recomendable realizar la instalación teniendo los permisos de administrador.
 \begin{enumerate}
-    \item al ejecutar \textbf{Visual Studio Code} abrimos la carpeta del repositorio fuente como directorio principal y nos abrimos una terminal. 
-    \item py -3 -m venv proyecto: creamos un entorno virtual siendo \textbf{proyecto} el nombre que le queramos desear.
-    \item proyecto\textbackslash Scripts\textbackslash activate: una vez creado el entorno lo activamos, en caso de no nombrarlo \textbf{proyecto} cambiar el nombre por el introducido.
+    \item Creamos un fichero \textbf{.env} al nivel de la raíz del proyecto para poder declarar variables del entorno, en el cual introduciremos el valor sobre CLAVE\_ADMIN=\textbf{clave} siendo clave el valor deseado para este.
+    \imagen{env}{Creación del fichero .env}
+    \item Abrimos una terminal para poder ejecutar los comandos necesarios 
+    \item py -3 -m venv RiskReal: creamos un entorno virtual siendo \textbf{RiskReal} el identificador para saber que estamos trabajando sobre \textbf{RiskReal}.
+    \imagen{venv}{Creación del entorno virtual}
+    \item RisReal\textbackslash Scripts\textbackslash activate: una vez creado el entorno lo activamos.
+    \imagen{activate}{Activación del entorno virtual}
     \item pip install -r requirements.txt: una vez activado el entorno instalaremos todos los elementos necesarios.
-    \item \$env:FLASK\_APP = "main": con este comando estableceremos como fichero fuente para la aplicación \textbf{FLASK} el fichero \textbf{main.py}. 
+    \imagen{installRequirements}{Instalación de las librerias}
+    \item \$env:FLASK\_APP = "main": con este comando estableceremos como fichero fuente para la aplicación \textbf{FLASK} el fichero \textbf{main.py}, en caso de dar algun tipo de error hay que ejecutar la consola como administrador.
+    \imagen{entorno}{Vinculación del fichero main.py con Flask}
     \item flask db init: una vez ya tenemos todo configurado creamos los ficheros principales para \textbf{flask\_migrate}.
+    \imagen{init}{Inicialización de migrate}
     \item flask db migrate: una vez creados se generan las instancias de las tablas.
-    \item flask db upgrade: introducion este comando generaremos las tablas y en caso de que hayan sido modificadas se ejecutara para aplicar los cambios de estas antes de ejecutar el proyecto
-    \item flask --app main run --debug: por último para ejecutar el propio proyecto se lanzara el comando con la opcion de \textbf{debug} para tener una traza de la ejecución del proyecto.
+    \imagen{migrate}{Instancia de las tablas}
+    \item flask db upgrade: introducion este comando generaremos las tablas y en caso de que hayan sido modificadas se ejecutara para aplicar los cambios de estas antes de ejecutar el proyecto.
+    \imagen{upgrade}{Generación de las tablas}
+    \item flask \text{-}-app main run \text{-}-debug: por último para ejecutar el propio proyecto se lanzara el comando con la opción de \textbf{debug} para tener una traza de la ejecución del proyecto.
+    \imagen{mainRun}{Lanzamiento de la aplicación}
 \end{enumerate}
+
+Una vez que entremos a \textbf{Visual Studio Code} y ya tengamos la instalación previa de otro momento, solo tenemos que activar el entorno (paso 4) y una vez ya nos encontremos en el entorno ejecutaremos el comando del paso 6, así si queremos ejecutar la aplicación de nuevo solo tenemos que realizar el paso 10 o si en su caso se modifica algún campo de las tablas se realizaran los pasos 8 y 9 para poner en contexto la aplicación.
+
+Para poder crear un contenedor con Docker seguiremos los siguientes pasos:
+\begin{enumerate}
+    \item Seguimos todos los pasos anteriores hasta el paso numero 10 ya que no queremos ejecutar la aplicación, sino tener los archivos necesarios para que RiskReal pueda ser lanzado.
+    \item Para poder realizar cualquier acción con Docker debemos tener Docker Desktop en funcionamiento, por lo que si no lo tenemos ejecutando lo abrimos.
+    \item Una vez ya tenemos Docker Desktop en funcionamiento ejecutamos el siguiente comando para crear una imagen: \textbf{docker build -t riskreal .}, tardara unos segundos en ejecutarse.
+    \imagen{dockerBuild}{Creación de la imagen de docker}
+    \item Ahora para crear el contenedor el cual se ejecutara realizamos el siguiente comando \textbf{docker run -p 5000:5000 \text{-}-env-file .env riskreal}
+    \imagen{dockerRun}{Creación y lanzamiento del contenedor}
+    \item Una vez ejecutado podemos acceder a la página web ya sea con la primera dirección que se muestra o con la dirección (localhost:5000).
+\end{enumerate}
+
+Una vez ya tengamos el contenedor si nos dirigimos al Docker Desktop podemos ver el contenedor creado, para ejecutarlo solo tendríamos que darle al botón de play que aparece en la parte de la derecha, y posteriormente clicamos en el puerto el cual nos abrirá la página web. No es necesario tener abierto Visual Studio Code para poder lanzar correctamente la aplicación.
+\imagen{contenedor}{Contenedor generado en Docker Desktop}
 \section{Pruebas del sistema}
+En cuanto a las pruebas a realizar para asegurar el correcto funcionamiento del \textbf{proyecto} a medida que se implementaba un nuevo requisito o se modificaba, al momento de comprobar que se realizase la nueva funcionalidad se utiliza el modo debug para poder recoger los fallos y asi poder correguirlos.
+
+A la hora de realizar una prueba conjunta se ha realizado de la misma manera siguiendo los pasos que se deberían seguir para comprobar el funcionamiento completo.
+ 

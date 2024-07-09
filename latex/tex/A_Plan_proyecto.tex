@@ -2,12 +2,155 @@
 
 \section{Introducción}
 
+En este anexo se va a exponer la planificación temporal junto con la viabilidad legal y económica del proyecto.
+
 \section{Planificación temporal}
 
+\subsection{Introducción}
+Para gestionar el proyecto se ha utilizado Github junto con Zube, primero disponemos de una parte temporal la cual no se disponía del repositorio Github en la cual se prueba la viabilidad del proyecto, después tenemos el desarrollo del proyecto junto con los sprints y por ultimo una parte que no se encuentra en Github correspondiente a la implementación de la documentación. En este flujo podemos observar como los comits han sido realizados.
+\imagen{flujoCommits}{Flujo de commits}
+\subsection{Sprints}
+ \begin{itemize}
+    \item Sprint previo 20/2/2024 – 22/3/2024: probar la viabilidad realizando un pequeño test que tenga más de 2 preguntas y varias preguntas cada una, además de recorrer el resultado y mostrarlo por pantalla, creación de usuarios de manera forzada con un array y creación de pestaña para logearse.
+    \item Sprint 1 22/3/2024 – 3/4/2024: Implementación de la documentación. Añadir sesiones al test. Mostrar imágenes en el test. Mejorar la visualización de las preguntas.Se aplica la librería flask-session para poder operar con las sesiones y utilización de Bootstrap para mejorar la interfaz de la página web.
+    \item Sprint 2 3/4/2024 – 17/4/2024: Base de datos con usuarios y test resueltos. Implementación de registro. En caso de no estar logeado hacer el test como un invitado. Guardar valores de los test con su nombre de usuario, fecha y puntuación. Opción de recuperación de contraseña. Ir avanzando en documentación. Utilización de flask-sqlalchemy y flask-migrate para el tratamiento de las BBDD.
+    \item Sprint 3 17/4/2024 – 2/5/2024: Documentación (general y manual de instalación). Corregir fallo con el usuario invitado. Implementar campos restantes en el registro. Formulario para resetear la contraseña. Implementar parte inicial al cuestionario. Mostrar usuario que está conectado en la página principal. Creación del manual de programador, intento de realización del cambio de contraseña utilizando verificación de dos pasos, implementación de la pestaña previa si se realiza el test como invitado.
+    \item Sprint 4 2/5/2024 – 15/5/2024: Creación de administradores que puedan ver las tablas resultados y usuarios. Implementación del otro tipo de test. Cambiar imágenes del test y añadir descripción. Mejora del cambio de contraseña. Avanzar en la documentación. Creación del rol administrador con permiso para ver los test y los usuarios de las BBDD, creación del cuestionario y adaptación de los valores a los originales aparte de rediseñar la ruta de las funciones para el invitado, intento de cambiar el cambio de contraseña.
+    \item Sprint 5 15/5/2024 – 29/5/2024: Mejora del cambio de contraseña. Pulimiento de estética. Cambio de estética general y cambio del tratamiento del cambio de contraseña utilizando una pregunta secreta elegida aleatoriamente.
+    \item Sprint 6 29/5/2024 – 6/6/2024: Memoria e implementación opción descargar resultados para administrador. Opción para descargar en un csv los resultados de los tests y avance en la documentación.
+    \item Sprint Final 6/6/2024 – /7/2024: terminar memoria y anexos, comentar código, cambios mínimos y utilización de docker.
+\end{itemize}
 \section{Estudio de viabilidad}
-
+En esta parte del apéndice se va a realizar un estudio sobre la viabilidad económica y legal del proyecto.
 \subsection{Viabilidad económica}
+A la hora de estudiar la posible viabilidad económica, se deben tener en cuenta varios aspectos como el gasto de los dispositivos utilizados, licencias e infraestructura.
+\subsubsection{Costes generales}
+En este apartado se incluirá lo relacionado con el uso del hardware y software del proyecto. Todo hardware tiene un coste no como algunas licencias de software que son open source, pero se tendrán en cuenta aquellas que no.
+\begin{enumerate}
+    \item \textbf{Costes del hardware:} He utilizado mi ordenador personal que tiene las siguientes especificaciones y en su momento tuvo un coste de 800€.
+    \begin{itemize}
+        \item CPU Intel(R) Core(TM) i7-7700HQ
+        \item 8 GB de RAM
+        \item GPU NVIDIA GeForce GTX 1050
+    \end{itemize}
+    La media de utilización de un portátil suele ser sobre los 4 años, por lo que el coste anual es:
+    \begin{equation}
+        \text{Coste anual} = \frac{800\,\text{€}}{4\,\text{años}} = 200\,\text{€/año}
+    \end{equation}
+    \item \textbf{Costes del software:} Para el proyecto se ha utilizado Docker el cual dispone de una licencia estándar gratuita, pero en caso de querer dar un uso mas avanzado es recomendable tener la versión pro como mínimo que tiene un coste de 5 \text{€} mensuales.
+     \begin{equation}
+        \text{Coste anual} = 5\,\text{€ x 12 meses} = 70\,\text{€/año}
+    \end{equation}
+    Por otra parte el uso de Github y Visual Studio Code son licencias gratuitas por lo que se tendrá en cuenta. Por último el sistema operativo utilizado que es Windows 10 ya no se encuentra en venta por lo que utilizaremos como referencia el Windows 11 Pro el cual su licencia cuesta 259€.
+    \begin{equation}
+        \text{Coste anual} = \frac{259\,\text{€}}{4\,\text{años}} = 64.75\,\text{€/año}
+    \end{equation}
+\end{enumerate}
+Teniendo en cuenta todos los costes tendríamos el resultado de la siguiente tabla:
+\\
+\\
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}|l|r|@{}}
+        \toprule
+        Recurso & Precio/año \\ \midrule
+        Ordenador & 200,00 € \\ 
+        Licencia Docker & 70,00 € \\ 
+        Windows 11 Pro & 64,75 € \\ \midrule
+        Total: & 334,75 € \\ \bottomrule
+    \end{tabular}
+    \caption{Coste anual por recursos hardware y software.}
+\end{table}
 
+\subsubsection{Costes de infraestructura y personal}
+Hay que tener en cuenta que a la hora de realizar un trabajo es necesario tener una sede, por lo cual se debe realizar un alquiler o compra de un local, el cual el precio medio de alquiler en España ronda a los 300€/mes.
+\begin{equation}
+    \text{Coste anual} = 300\,\text{€ x 12 meses} = 3600\,\text{€/año}
+\end{equation}
+En cuanto al personal el único trabajador soy yo, lo cual el sueldo correspondiente para un desarrollador Junior es de media 21.000€ anuales.
+\begin{equation}
+    \text{Salario bruto mensual} = \frac{21000\,\text{€}}{14\,\text{pagas}} = 1500\,\text{€}
+\end{equation}
+Por lo cual el costa anual sera:
+\begin{equation}
+    \text{Coste anual} = 1500\,\text{€ x 12 meses} = 18000\,\text{€/año}
+\end{equation}
+Teniendo en cuenta todos los costes tendríamos el resultado de la siguiente tabla:
+\\
+\\
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}|l|r|@{}}
+         \toprule
+        Recurso & Precio \\ \midrule
+        Coste del software & 3600 € \\ 
+        Coste de infraestructura y personal & 18000 € \\ \midrule
+        Total: & 21600 € \\ \bottomrule 
+    \end{tabular}
+    \caption{Coste anual por personal e infraestructura.}
+\end{table}
+
+Una vez ya tenemos todos los costes a tener en cuenta, tenemos que buscar la manera en la cual sea sostenible y se puedan tener beneficios. Por lo que primero vamos a determinar un precio anual con el que se pueda contratar el servicio de RiskReal con las posibles modificaciones y mantenimiento.
+Al ser una suscripción anual vamos a poner un precio estándar de 1000 € por lo que vamos a calcular el total de clientes necesarios que se deberán tener para pasar el margen de beneficio:
+\\
+\\
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}|l|r|@{}}
+         \toprule
+        Recurso & Precio/año \\ \midrule
+        Infraestructura & 334,75 € \\
+        Personal & 21600,00 € \\ \midrule
+        Total: & 21934,75 € \\ \bottomrule 
+    \end{tabular}
+    \caption{Coste anual total}
+\end{table}
+
+\begin{equation}
+    \text{Numero clientes} = \frac{21934.75\,\text{€}}{1000\,\text{€}} = 21.93\,\text{ clientes}
+\end{equation}
+
+Realizado el estudio tenemos que para que el proyecto sea viable debemos tener como mínimo un total de 22 clientes anuales, para tener una economía sostenible con alguna ganancia. 
 \subsection{Viabilidad legal}
+Para evaluar la viabilidad legal de un proyecto de software, es crucial considerar varios factores como las licencias de software utilizadas, y las leyes y regulaciones aplicables. A continuación, se presenta un análisis detallado de la viabilidad legal del proyecto.
 
+\subsubsection{Licencias}
+\begin{table}[]
+    \centering
+    \begin{tabular}{@{}|l|l|l|@{}}
+        \toprule
+        \textbf{Librería} & \textbf{Versión} & \textbf{Licencia} \\ \hline
+        alembic & 1.13.1 & MIT License \\ \midrule
+        blinker &1.8.2 & MIT License \\ \midrule
+        click & 8.1.7 & BSD-3-Clause License \\ \midrule
+        colorama & 0.4.6 & BSD-3-Clause License \\ \midrule
+        Flask & 3.0.3 & BSD-3-Clause License \\ \midrule
+        Flask-Migrate & 4.0.7 & MIT License \\ \midrule
+        Flask-SQLAlchemy & 3.1.1 & BSD-3-Clause License \\ \midrule
+        greenlet & 3.0.3 & MIT License \\ \midrule
+        install & 1.3.5 & MIT License \\ \midrule
+        itsdangerous & 2.2.0 & BSD-3-Clause License \\ \midrule
+        Jinja2 & 3.1.4 & BSD-3-Clause License \\ \midrule
+        Mako & 1.3.5 & MIT License \\ \midrule
+        MarkupSafe & 2.1.5 & BSD-3-Clause License \\ \midrule
+        pip & 24.0 & MIT License \\ \midrule
+        python-dotenv & 1.0.1 & BSD-3-Clause License \\ \midrule
+        setuptools & 65.5.0 & MIT License \\ \midrule
+        SQLAlchemy & 2.0.9 & MIT License \\ \midrule
+        typing\_extensions &4.12.0 & Python Software Foundation License \\ \midrule
+        Werkzeug & 3.0.3 & BSD-3-Clause License \\ \bottomrule 
+    \end{tabular}
+    \caption{LIbrerias del proyecto con su version y licencia}
+\end{table}
 
+\begin{itemize}
+    \item \textbf{MIT License} ~\cite{wiki:MIT}: Permite a los usuarios hacer casi cualquier cosa con el proyecto, incluyendo usarlo, copiarlo, modificarlo, fusionarlo, publicarlo, distribuirlo, sublicenciarlo y vender copias del software, siempre que incluyan el aviso de derechos de autor y la exención de responsabilidad en todas las copias o partes sustanciales del software.
+    \item \textbf{BSD-3-Clause License} ~\cite{wiki:BSD}: Similar a la MIT, pero con una cláusula adicional que impide el uso del nombre de los autores para promocionar productos derivados sin permiso.
+    \item \textbf{Python Software Foundation License} ~\cite{wiki:PSFL}: Es una licencia específica para Python que es similar en espíritu a las licencias MIT y BSD. Es permisiva y permite el uso, copia, modificación y distribución del software.
+\end{itemize}
+\subsubsection{Conclusión}
+El proyecto es legalmente viable teniendo en cuenta que las licencias utilizadas permiten la distribución siempre que se tengan en cuenta la propiedad intelectual del código. No se encuentran barreras legales para la continuación del desarrollo del proyecto, al utilizar solo licencias permisivas.
+
+Cabe destacar que es aconsejable la consulta con un abogado especializado para estar seguro de seguir correctamente toda la jurisdicción  correspondiente.
+
+Como resultado la licencia que utilizaria mi proyecto seria de tipo \textbf{BSD-3-Clause License}.

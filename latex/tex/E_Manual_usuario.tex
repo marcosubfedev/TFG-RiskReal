@@ -1,11 +1,86 @@
 \apendice{Documentación de usuario}
 
 \section{Introducción}
-
+Respecto a este anexo se explicara el uso que puede tener cualquier usuario, las características  con las que puede ejecutar el proyecto y el uso esperado.
 \section{Requisitos de usuarios}
-
+Cualquier usuario que quiera poder ejecutar el proyecto deberá tener instalado correctamente \textbf{Docker}, por lo que se deberá ver el apartado de instalación de \hyperref[InstDocker]{Docker} disponible en el anexo D.3 Manual del programador. 
 \section{Instalación}
+Para instalar correctamente la aplicación se deberán seguir los siguientes pasos:
+
+\begin{enumerate}
+    \item Descargamos el siguiente \href{https://drive.google.com/file/d/1IkoLn0codu3tQItd_Ih4hI82Km6nmmN5/view?usp=sharing}{fichero comprimido}.
+    \item Iniciamos Docker Desktop.
+    \item Abrimos una terminal.
+    \item Nos dirigimos a la ruta donde tenemos el fichero descargado.
+    \item Ejecutamos el comando docker load –i RiskReal.tar.
+    \imagen{cargarImagenDocker}{Comando para importar la imagen a Docker}
+    \item Creamos un nuevo contenedor introduciendo el puerto 5000 como se ve en la imagen.
+    \imagen{crearContenedorDocker}{Creación del contenedor de Docker}
+    \item Clicamos en el primer link que se ve en la imagen o introducimos en el navegador la dirección http://localhost:5000/.
+    \imagen{lanzarContenedor}{Ejecución del contenedor}
+\end{enumerate}
 
 \section{Manual del usuario}
+En el caso de querer registrar un usuario nuevo para ser administrador la clave utilizada es \textbf{RiskReal} la cual es la que hay que introducir en el campo “Clave admin”. Se dispone del siguiente administrador para poder serlo sin la necesidad de crear un usuario nuevo:
+\begin{itemize}
+    \item \textbf{Correo Electrónico:} adminvisible@gmail.com
+    \item \textbf{Contraseña:} pruebalaadministracion
+    \item \textbf{Respuesta secreta:} Avatar
+\end{itemize}
 
+Tras ejecutar el \textbf{.exe} nos encontraremos en la página de inicio, desde la cual se puede ver el usuario que esta logeado en la parte superior derecha y de una barra de navegación en la parte superior izquierda con las diferentes secciones:
+\begin{itemize}
+    \item \textbf{Inscribirse:} En la que podremos registrarnos como un nuevo usuario o iniciar sesión en uno ya existente, una vez ya estuviésemos logeados tendremos la opción de cerrar sesión.
+    \item \textbf{Examinarse:} Desde la cual nos podemos evaluar con cualquier test o cuestionario disponible en el desplegable.
+    \item \textbf{Administración:} El cual solo es disponible para aquellos usuarios que son administradores desde la cual se tienen las opciones de:
+    \begin{itemize}
+        \item \textbf{Usuarios:} Opción desde la cual podemos ver todos los usuarios registrados en la plataforma.
+        \item \textbf{Resultados:} Opción desde la cual podemos ver todos los resultados obtenidos por los diferentes usuarios.
+    \end{itemize}
+\end{itemize}
+\imagen{inicio}{Pestaña de inicio sin logearse}
+\imagen{inicioAdmin}{Pestaña de inicio como administrador}
 
+Si nos dirigimos al registro tendremos que introducir todos los credenciales que se muestran y clicar el boton de registrarse el cual nos enviara a la pestaña de login.
+
+\imagen{registro}{Pestaña de registro}
+
+Una vez estamos en la pestaña de login podemos introducir nuestros credenciales para iniciar sesión o por otra parte podemos cambiar la contraseña.
+
+\imagen{login}{Pestaña de login}
+
+En caso de que hayamos seleccionado la opción de cambiar contraseña debemos meter los credenciales que se observan y en caso de que el cambio se haya producido se nos enviara a la pestaña de login.
+
+insertar imagen correspondiente al cambio de contraseña
+
+Si queremos realizar un test o cuestionario si no estamos logeados estaremos en la pestaña que se observa en la cual debemos meter esos datos y entraremos como invitados.
+
+\imagen{datosInvitado}{Pestaña de inserción de los datos del invitado}
+
+Una vez nos estamos evaluando en la pestaña se mostrara la pregunta con indicador que nos muestra en cual estamos y las diferentes opciones las cuales para marcar una opción debemos clicar y esta se cambiara el contorno en verde y si ponemos el ratón encima veremos que el contorno cambia a amarillo como símbolo de que se puede seleccionar y cambiar de respuesta. También se dispone de diferentes botones con los que nos moveremos entre las diferentes preguntas siendo estos el botón de siguiente y anterior, y por otra parte siempre podremos salir o finalizar si nos encontramos en la última pregunta.
+
+\imagen{testInicio}{Pestaña del test en la primera pregunta}
+\imagen{testIntermedio}{Pestaña del test en una pregunta intermedia}
+\imagen{testFin}{Pestaña del test en la última pregunta}
+
+\imagen{cuestionarioInicio}{Pestaña del cuestionario en la primera pregunta}
+\imagen{cuestionarioIntermedio}{Pestaña del cuestionario en una pregunta intermedia}
+\imagen{cuestionarioFin}{Pestaña del cuestionario en la última pregunta}
+
+Tras finalizar de evaluarnos tendremos como resultado la siguiente pantalla la cual nos muestra el resultado obtenido con una breve descripción y un gif acorde, además de un botón que nos permite volver a la pestaña de inicio.
+
+\imagen{resultadoEvaluacion}{pestaña del resultado tras evaluarse}
+
+En el caso de que seamos un administrador y queramos ver los usuarios registrados, como se puede ver en la tabla tenemos todos los datos de los usuarios excepto la contraseña y la pregunta secreta. La tabla nos mostrara como máximo 10 filas las cuales podremos ir desplazándonos entre ellas gracias a los botones de siguiente y anterior, a parte podremos regresar de vuelta a la pestaña de inicio.
+
+\imagen{usuarios1}{Tabla de los usuarios en la primera página}
+\imagen{usuarios2}{Tabla de los usuarios en la segunda página}
+
+Otra acción que podemos realizar siendo administradores es la visualización de todos los resultados obtenidos por los usuarios, lo cual como se puede observar es muy parecido a la tabla de los usuarios pero cambiando los datos y teniendo un botón extra con el cual exportaremos todos los datos en un archivo resultados.csv.
+
+\imagen{resultados1}{Tabla de los resultados en la primera página}
+\imagen{resultados2}{Tabla de los resultados en la segunda página}
+
+Esto sería un ejemplo del fichero resultante tras descargar el csv.
+
+\imagen{archivoCsv}{Archivo ccv abierto desde excel}
