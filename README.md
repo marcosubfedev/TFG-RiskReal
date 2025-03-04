@@ -8,7 +8,7 @@ De esta manera se plantea la utilización de tests para poder evaluar las Soft S
 
 ## Autor
 
-- [@muf1002](https://www.github.com/muf1002)
+- [@marcosubfedev](https://www.github.com/marcosubfedev)
 
 
 ## Instalación de RiskReal como desarrollador del proyecto
